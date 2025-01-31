@@ -1,2 +1,2 @@
 # IDodgedThat
-Small mod that adds chat messages on player death. Currently supports information on normal, friendly fire, void fog, jail'd and fall damage deaths.
+Small mod that adds chat messages on player death. Currently supports information on normal, friendly fire, void fog, jail'd and fall damage deaths. Also outputs information on what skill killed the player, assuming such information was provided.

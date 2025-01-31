@@ -1,5 +1,5 @@
 # RevertStunBuff
-Reverts stun buffs to how they were pre-SoTS.
+Reverts stun buffs to how they were pre-SoTS. It can probably be run server-side only, but I haven't tested it.
 
 # Background stuff
 Basically, pre-SoTS stuns would refresh their duration. With SoTS Gearbox decided that stuns instead should stack. 
