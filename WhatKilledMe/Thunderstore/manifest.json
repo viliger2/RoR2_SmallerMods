@@ -1,6 +1,6 @@
 {
     "name": "IDodgedThat",
-    "version_number": "1.0.1",
+    "version_number": "1.0.2",
     "website_url": "",
     "description": "Adds chat messages on player death with information on what killed them.",
     "dependencies": [

@@ -1,10 +1,10 @@
 {
 	"strings": {
-		"WHAT_KILLED_ME_NORMAL_DEATH": "<color=#e5eefc><style=cIsHealing>{0}</style> got killed by <style=cDeath>{1}</style>{4}(<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
-		"WHAT_KILLED_ME_FRIENDLY_FIRE": "<color=#e5eefc><style=cIsHealing>FRIENDLY FIRE! {0}</style> got killed by <style=cDeath>{1}</style>{4}(<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
-		"WHAT_KILLED_ME_VOID_FOG": "<color=#e5eefc><style=cIsHealing>{0}</style> got killed by <style=cIsVoid>void fog{1}</style>{4}(<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
-		"WHAT_KILLED_ME_JAILED": "<style=cIsVoid>JAILED!</style> <color=#e5eefc><style=cIsHealing>{0}</style> got killed by <style=cIsVoid>{1}</style>{4}(<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
-		"WHAT_KILLED_ME_WEAK_ASS_KNEES": "<style=cArtifact>BROKEN KNEECAPS!</style> <color=#e5eefc><style=cIsHealing>{0}</style> fell to their death{1}{4}(<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
+		"WHAT_KILLED_ME_NORMAL_DEATH": "<color=#e5eefc><style=cIsHealing>{0}</style> got killed by <style=cDeath>{1}</style>{4} (<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
+		"WHAT_KILLED_ME_FRIENDLY_FIRE": "<color=#e5eefc><style=cIsHealing>FRIENDLY FIRE! {0}</style> got killed by <style=cDeath>{1}</style>{4} (<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
+		"WHAT_KILLED_ME_VOID_FOG": "<color=#e5eefc><style=cIsHealing>{0}</style> got killed by <style=cIsVoid>void fog{1}</style>{4} (<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
+		"WHAT_KILLED_ME_JAILED": "<style=cIsVoid>JAILED!</style> <color=#e5eefc><style=cIsHealing>{0}</style> got killed by <style=cIsVoid>{1}</style>{4} (<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
+		"WHAT_KILLED_ME_WEAK_ASS_KNEES": "<style=cArtifact>BROKEN KNEECAPS!</style> <color=#e5eefc><style=cIsHealing>{0}</style> fell to their death{1}{4} (<style=cIsDamage>{2}</style> damage taken, from <style=cIsHealth>{3}</style> health).</color>",
 		"WHAT_KILLED_ME_SOMETHING": "something",
 		"WHAT_KILLED_ME_DAMAGE_SOURCE": " with <style=cIsUtility>{0}</style>"
 	}

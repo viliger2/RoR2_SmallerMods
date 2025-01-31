@@ -11,7 +11,7 @@ namespace WhatKilledMe
     {
         public const string Author = "Viliger";
         public const string ModName = "IDodgedThat";
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.2";
         public const string GUID = "com." + Author + "." + ModName;
 
         public const string LanguageFolder = "Language";
@@ -87,7 +87,7 @@ namespace WhatKilledMe
         {
             var attacker = damageReport.attackerBody;
 
-            if (!attacker || attacker.skillLocator)
+            if (!attacker || !attacker.skillLocator)
             {
                 return "";
             }

@@ -17,22 +17,7 @@ namespace RevertStunBuff
         private void Awake()
         {
             IL.RoR2.SetStateOnHurt.SetStunInternal += SetStateOnHurt_SetStunInternal;
-            //On.EntityStates.StunState.ExtendStun += StunState_ExtendStun;
-            //On.EntityStates.StunState.OnExit += StunState_OnExit;
         }
-
-        //private void StunState_OnExit(On.EntityStates.StunState.orig_OnExit orig, StunState self)
-        //{
-        //    orig(self);
-        //    Logger.LogMessage($"fixedAge: {self.fixedAge}, we left stun");
-        //}
-
-        //private void StunState_ExtendStun(On.EntityStates.StunState.orig_ExtendStun orig, StunState self, float durationDelta)
-        //{
-        //    Logger.LogMessage($"fixedAge: {self.fixedAge}, pre duration: {self.duration}, durationDelta: {durationDelta}");
-        //    orig(self, durationDelta);
-        //    Logger.LogMessage($"fixedAge: {self.fixedAge}, post duration: {self.duration}, durationDelta: {durationDelta}");
-        //}
 
         private void SetStateOnHurt_SetStunInternal(MonoMod.Cil.ILContext il)
         {
