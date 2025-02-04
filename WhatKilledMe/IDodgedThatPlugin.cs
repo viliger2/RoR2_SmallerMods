@@ -39,12 +39,15 @@ namespace WhatKilledMe
                 return;
             }
 
-            string killer = Language.GetString("WHAT_KILLED_ME_SOMETHING");
-            string skill = "";
+            string killerString = Language.GetString("WHAT_KILLED_ME_SOMETHING");
+            string skillString = "";
             if (damageReport.attackerBody)
             {
-                killer = Util.GetBestBodyName(damageReport.attackerBody.gameObject);
-                skill = string.Format(Language.GetString("WHAT_KILLED_ME_DAMAGE_SOURCE"), AttemptToGetSkill(damageReport));
+                killerString = Util.GetBestBodyName(damageReport.attackerBody.gameObject);
+                var skillName = AttemptToGetSkill(damageReport);
+                if (!skillName.IsNullOrWhiteSpace()) {
+                    skillString = string.Format(Language.GetString("WHAT_KILLED_ME_DAMAGE_SOURCE"), skillName);
+                }
             }
 
             string deathToken = "WHAT_KILLED_ME_NORMAL_DEATH";
@@ -53,17 +56,17 @@ namespace WhatKilledMe
                 deathToken = "WHAT_KILLED_ME_FRIENDLY_FIRE";
             } else if(IsDamageVoidFog(damageReport.damageInfo)) {
                 deathToken = "WHAT_KILLED_ME_VOID_FOG";
-                killer = "";
-                skill = "";
+                killerString = "";
+                skillString = "";
             }
             else if (IsDamageVoidDeath(damageReport.damageInfo)) {
                 deathToken = "WHAT_KILLED_ME_JAILED";
-                skill = "";
+                skillString = "";
             } else if(damageReport.isFallDamage)
             {
                 deathToken = "WHAT_KILLED_ME_WEAK_ASS_KNEES";
-                killer = "";
-                skill = "";
+                killerString = "";
+                skillString = "";
             }
 
             string victim = Util.GetBestMasterName(damageReport.victimMaster);
@@ -71,7 +74,7 @@ namespace WhatKilledMe
             Chat.SendBroadcastChat(new Chat.SimpleChatMessage
             {
                 baseToken = deathToken,
-                paramTokens = new string[] { victim, killer, damageReport.damageDealt.ToString("F0"), damageReport.combinedHealthBeforeDamage.ToString("F0"), skill }
+                paramTokens = new string[] { victim, killerString, damageReport.damageDealt.ToString("F0"), damageReport.combinedHealthBeforeDamage.ToString("F0"), skillString }
             });
          }
 
@@ -126,9 +129,20 @@ namespace WhatKilledMe
                 }
                 if (skillDef)
                 {
-                    if (!string.IsNullOrEmpty(skillDef.skillNameToken))
+                    if (!skillDef.skillDescriptionToken.IsNullOrWhiteSpace())
                     {
-                        return Language.GetString(skillDef.skillNameToken);
+                        var name = Language.GetString(skill.skillNameToken);
+                        if (name.IsNullOrWhiteSpace() || name.Equals(skill.skillNameToken))
+                        {
+                            if (UseSkillDefNames.Value)
+                            {
+                                return skillDef.skillName;
+                            }
+                        }
+                        else
+                        {
+                            return name;
+                        }
                     } else if (UseSkillDefNames.Value)
                     {
                         return skillDef.skillName;
