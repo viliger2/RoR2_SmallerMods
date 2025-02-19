@@ -1,4 +1,11 @@
 <details>
+<summary>1.0.3 </summary>
+
+* Fixed printing "with" even if there is no skill name to get.
+* Added more robust detection if skill name needs to be replaced with SkillDef name.
+  * _On this note, check out [DamageSourceForEnemies](https://thunderstore.io/package/LordVGames/DamageSourceForEnemies/), while there aren't any localized strings to get, you will get skill def names and they are usually relatively close to whatever skill does._
+</details>
+<details>
 <summary>1.0.2 </summary>
 
 * Fixed skill name always printing as empty space.
