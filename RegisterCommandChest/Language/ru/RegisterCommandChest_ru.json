@@ -1,0 +1,8 @@
+{
+	"strings": {
+		"COMMANDCHEST_NAME": "Сундук команды",
+		"COMMANDCHEST_CONTEXT": "Открыть сундук команды",
+		"COMMANDCHEST_DESCRIPTION": "Содержит эссенцию команды, которая может быть любого качества.",
+		"COMMANDCHEST_LORE": "LORE HERE"
+	}
+}
