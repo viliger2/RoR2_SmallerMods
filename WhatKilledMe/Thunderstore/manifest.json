@@ -1,7 +1,7 @@
 {
     "name": "IDodgedThat",
     "version_number": "1.0.3",
-    "website_url": "",
+    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/WhatKilledMe",
     "description": "Adds chat messages on player death with information on what killed them.",
     "dependencies": [
 	    "bbepis-BepInExPack-5.4.2102"

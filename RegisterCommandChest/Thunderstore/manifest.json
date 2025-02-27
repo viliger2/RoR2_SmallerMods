@@ -1,7 +1,7 @@
 {
     "name": "RegisterCommandChest",
     "version_number": "1.0.1",
-    "website_url": "",
+    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/RegisterCommandChest",
     "description": "Registers unused Command Chest to game's catalogue. Mod does nothing on its own.",
     "dependencies": [
 	    "bbepis-BepInExPack-5.4.2102"

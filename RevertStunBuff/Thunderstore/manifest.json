@@ -1,7 +1,7 @@
 {
     "name": "RevertStunBuff",
     "version_number": "1.0.0",
-    "website_url": "",
+    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/RevertStunBuff",
     "description": "Reverts stun stacking to how it was pre-SoTS.",
     "dependencies": [
 	    "bbepis-BepInExPack-5.4.2102"
