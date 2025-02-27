@@ -2,7 +2,7 @@
 	"strings": {
 		"COMMANDCHEST_NAME": "Command Chest",
 		"COMMANDCHEST_CONTEXT": "Open Command Chest",
-		"COMMANDCHEST_DESCRIPTION": "Contains Command Essense that can be of any rarity.",
+		"COMMANDCHEST_DESCRIPTION": "Contains Command Essence that can be of any rarity.",
 		"COMMANDCHEST_LORE": "LORE HERE"
 	}
 }

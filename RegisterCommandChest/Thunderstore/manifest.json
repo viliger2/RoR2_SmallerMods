@@ -1,6 +1,6 @@
 {
     "name": "RegisterCommandChest",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "",
     "description": "Registers unused Command Chest to game's catalogue. Mod does nothing on its own.",
     "dependencies": [

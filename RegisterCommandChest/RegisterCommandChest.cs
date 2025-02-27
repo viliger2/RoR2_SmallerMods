@@ -12,7 +12,7 @@ namespace RegisterCommandChest
     {
         public const string Author = "Viliger";
         public const string Name = nameof(RegisterCommandChest);
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public const string GUID = Author + "." + Name;
 
         public const string LanguageFolder = "Language";
