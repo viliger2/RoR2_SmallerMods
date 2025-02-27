@@ -30,6 +30,9 @@
 		<None Update="Language\en\IDodgedThat_en.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+		<None Update="Language\ru\ArtifactofTheKing_ru.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="Language\ru\IDodgedThat_ru.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>

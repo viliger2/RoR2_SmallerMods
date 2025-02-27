@@ -1,8 +1,4 @@
-﻿using BepInEx;
-using BepInEx.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BepInEx.Configuration;
 
 namespace ArtifactofTheKing
 {
@@ -15,7 +11,7 @@ namespace ArtifactofTheKing
         public static ConfigEntry<int> SecStocks { get; set; }
 
         public static ConfigEntry<int> UtilStocks { get; set; }
-        
+
         public static ConfigEntry<int> SpecialStocks { get; set; }
 
         public static ConfigEntry<float> PrimCD { get; set; }

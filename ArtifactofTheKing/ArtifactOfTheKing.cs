@@ -1,9 +1,7 @@
 ﻿using BepInEx;
-using Rewired.UI.ControlMapper;
 using RoR2;
 using RoR2.Projectile;
 using RoR2.Skills;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -15,7 +13,7 @@ namespace ArtifactofTheKing
     {
         public const string Author = "Original by Blobface, ported to SoTS by viliger";
         public const string ModName = "Artifact of the King";
-        public const string Version = "1.2.0";
+        public const string Version = "1.2.1";
         public const string GUID = "com.Blobface.ArtifactKing";
 
         public static ArtifactDef King;
@@ -68,12 +66,12 @@ namespace ArtifactofTheKing
         {
             if (RunArtifactManager.instance.IsArtifactEnabled(King) && self.isAuthority)
             {
-                if(self.fixedAge > 0.45f * self.duration && !hasFiredSkyLeapFirst)
+                if (self.fixedAge > 0.45f * self.duration && !hasFiredSkyLeapFirst)
                 {
                     hasFiredSkyLeapFirst = true;
                     self.FireRingAuthority();
                 }
-                if(self.fixedAge > 0.9f * self.duration && !hasFiredSkyLeapSecond)
+                if (self.fixedAge > 0.9f * self.duration && !hasFiredSkyLeapSecond)
                 {
                     hasFiredSkyLeapSecond = true;
                     self.FireRingAuthority();
@@ -112,7 +110,7 @@ namespace ArtifactofTheKing
                     force = 0f,
                     projectilePrefab = EntityStates.BrotherMonster.Weapon.FireLunarShards.projectilePrefab
                 };
-                for(int i = 0; i < KingConfiguration.LunarShardAdd.Value; i++)
+                for (int i = 0; i < KingConfiguration.LunarShardAdd.Value; i++)
                 {
                     ProjectileManager.instance.FireProjectile(projectileInfo);
                     aimRay.direction = Util.ApplySpread(aimRay.direction, 0f, self.maxSpread * (1f + 0.45f * i), self.spreadYawScale * (1f + 0.45f * i), self.spreadPitchScale * (1f + 0.45f * i), 0f, 0f);
@@ -128,7 +126,7 @@ namespace ArtifactofTheKing
             {
                 if (self.hasDoneBlastAttack)
                 {
-                    if(self.modelTransform && !hasFiredWeaponSlam)
+                    if (self.modelTransform && !hasFiredWeaponSlam)
                     {
                         hasFiredWeaponSlam = true;
                         float angle = 360f / KingConfiguration.SlamOrbCount.Value;
@@ -138,13 +136,13 @@ namespace ArtifactofTheKing
                         {
                             var vector = Quaternion.AngleAxis(angle * i, Vector3.up) * projectVector;
                             ProjectileManager.instance.FireProjectile(
-                                EntityStates.BrotherMonster.FistSlam.waveProjectilePrefab, 
-                                muzzleTransform.position, 
-                                Util.QuaternionSafeLookRotation(vector), 
-                                self.gameObject, 
-                                self.damageStat * EntityStates.BrotherMonster.FistSlam.waveProjectileDamageCoefficient, 
-                                EntityStates.BrotherMonster.FistSlam.waveProjectileForce, 
-                                self.RollCrit(), 
+                                EntityStates.BrotherMonster.FistSlam.waveProjectilePrefab,
+                                muzzleTransform.position,
+                                Util.QuaternionSafeLookRotation(vector),
+                                self.gameObject,
+                                self.damageStat * EntityStates.BrotherMonster.FistSlam.waveProjectileDamageCoefficient,
+                                EntityStates.BrotherMonster.FistSlam.waveProjectileForce,
+                                self.RollCrit(),
                                 DamageColorIndex.Default);
                         }
                     }
@@ -171,23 +169,23 @@ namespace ArtifactofTheKing
                 {
                     var directionWithSpread = Util.ApplySpread(aimRay.direction, 0f, 0f, 1f, 0f, i * 5f, 0f);
                     ProjectileManager.instance.FireProjectile(
-                        EntityStates.BrotherMonster.Weapon.FireLunarShards.projectilePrefab, 
-                        aimRay.origin, 
-                        Util.QuaternionSafeLookRotation(directionWithSpread), 
-                        self.gameObject, 
-                        self.damageStat * 0.1f / 12f, 
-                        0f, 
-                        self.RollCrit(), 
+                        EntityStates.BrotherMonster.Weapon.FireLunarShards.projectilePrefab,
+                        aimRay.origin,
+                        Util.QuaternionSafeLookRotation(directionWithSpread),
+                        self.gameObject,
+                        self.damageStat * 0.1f / 12f,
+                        0f,
+                        self.RollCrit(),
                         DamageColorIndex.Default);
                     directionWithSpread = Util.ApplySpread(aimRay.direction, 0f, 0f, 1f, 0f, -i * 5f, 0f);
                     ProjectileManager.instance.FireProjectile(
-                        EntityStates.BrotherMonster.Weapon.FireLunarShards.projectilePrefab, 
-                        aimRay.origin, 
-                        Util.QuaternionSafeLookRotation(directionWithSpread), 
-                        self.gameObject, 
-                        self.damageStat * 0.1f / 12f, 
-                        0f, 
-                        self.RollCrit(), 
+                        EntityStates.BrotherMonster.Weapon.FireLunarShards.projectilePrefab,
+                        aimRay.origin,
+                        Util.QuaternionSafeLookRotation(directionWithSpread),
+                        self.gameObject,
+                        self.damageStat * 0.1f / 12f,
+                        0f,
+                        self.RollCrit(),
                         DamageColorIndex.Default);
                 }
             }
@@ -199,16 +197,16 @@ namespace ArtifactofTheKing
             if (RunArtifactManager.instance.IsArtifactEnabled(King) && self.isAuthority)
             {
                 var aimRay = self.GetAimRay();
-                for(int i = 0; i < KingConfiguration.UtilityShotgun.Value; i++)
+                for (int i = 0; i < KingConfiguration.UtilityShotgun.Value; i++)
                 {
                     ProjectileManager.instance.FireProjectile(
-                        EntityStates.BrotherMonster.Weapon.FireLunarShards.projectilePrefab, 
-                        aimRay.origin, 
-                        Quaternion.LookRotation(aimRay.direction), 
-                        self.gameObject, 
-                        self.damageStat * 0.05f / 12f, 
-                        0f, 
-                        self.RollCrit(), 
+                        EntityStates.BrotherMonster.Weapon.FireLunarShards.projectilePrefab,
+                        aimRay.origin,
+                        Quaternion.LookRotation(aimRay.direction),
+                        self.gameObject,
+                        self.damageStat * 0.05f / 12f,
+                        0f,
+                        self.RollCrit(),
                         DamageColorIndex.Default);
                     aimRay.direction = Util.ApplySpread(aimRay.direction, 0f, 4f, 4f, 4f, 0f, 0f);
                 }
@@ -242,7 +240,8 @@ namespace ArtifactofTheKing
                 Logger.LogMessage("Initializing modded stats");
                 AdjustSkills();
                 AdjustStats();
-            } else
+            }
+            else
             {
                 Logger.LogMessage("Reverting to vanilla stats");
                 RevertSkills();
@@ -270,7 +269,7 @@ namespace ArtifactofTheKing
 
         private void AdjustStats()
         {
-            if(Mithrix)
+            if (Mithrix)
             {
                 var characterBody = Mithrix.GetComponent<CharacterBody>();
 
@@ -317,8 +316,8 @@ namespace ArtifactofTheKing
             {
                 var characterBody = Mithrix.GetComponent<CharacterBody>();
 
-                characterBody.baseMaxHealth = 1400f;
-                characterBody.levelMaxHealth = 420f;
+                characterBody.baseMaxHealth = 1000f;
+                characterBody.levelMaxHealth = 300f;
                 characterBody.baseAttackSpeed = 1f;
                 characterBody.baseMoveSpeed = 15f;
                 characterBody.baseAcceleration = 45f;
@@ -341,16 +340,16 @@ namespace ArtifactofTheKing
                 var projectileDirectionTargetFinder = EntityStates.BrotherMonster.Weapon.FireLunarShards.projectilePrefab.GetComponent<ProjectileDirectionalTargetFinder>();
                 projectileDirectionTargetFinder.lookRange = 80f;
                 projectileDirectionTargetFinder.lookCone = 90f;
-                projectileDirectionTargetFinder.allowTargetLoss = true;
+                projectileDirectionTargetFinder.allowTargetLoss = false;
 
-                EntityStates.BrotherMonster.WeaponSlam.duration = 3.5f;
+                EntityStates.BrotherMonster.WeaponSlam.duration = 4f;
                 EntityStates.BrotherMonster.HoldSkyLeap.duration = 3f;
                 EntityStates.BrotherMonster.ExitSkyLeap.cloneCount = 0;
                 EntityStates.BrotherMonster.ExitSkyLeap.cloneDuration = 0;
                 EntityStates.BrotherMonster.ExitSkyLeap.recastChance = 0;
-                EntityStates.BrotherMonster.UltChannelState.waveProjectileCount = 8;
-                EntityStates.BrotherMonster.UltChannelState.maxDuration = 9f;
-                EntityStates.BrotherMonster.UltChannelState.totalWaves = 5;
+                EntityStates.BrotherMonster.UltChannelState.waveProjectileCount = 9;
+                EntityStates.BrotherMonster.UltChannelState.maxDuration = 8f;
+                EntityStates.BrotherMonster.UltChannelState.totalWaves = 4;
             }
         }
 

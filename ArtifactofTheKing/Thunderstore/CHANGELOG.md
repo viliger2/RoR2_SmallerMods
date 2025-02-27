@@ -33,3 +33,7 @@
 
 `1.2.0`
 - Fixed for SoTS
+
+`1.2.1`
+- Fixed Mithrix stats not being reverted to correct values upon disabling the artifact.
+- Added russian localization.
