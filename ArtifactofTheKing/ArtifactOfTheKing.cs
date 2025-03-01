@@ -4,6 +4,7 @@ using RoR2.Projectile;
 using RoR2.Skills;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using JetBrains.Annotations;
 
 namespace ArtifactofTheKing
 {
@@ -13,7 +14,7 @@ namespace ArtifactofTheKing
     {
         public const string Author = "Original by Blobface, ported to SoTS by viliger";
         public const string ModName = "Artifact of the King";
-        public const string Version = "1.2.1";
+        public const string Version = "1.2.2";
         public const string GUID = "com.Blobface.ArtifactKing";
 
         public static ArtifactDef King;
@@ -23,6 +24,7 @@ namespace ArtifactofTheKing
         private static bool hasFiredWeaponSlam = false; // why
         private static bool hasFiredSkyLeapFirst = false; // now this is OUR shitcode
         private static bool hasFiredSkyLeapSecond = false;
+        private static bool isEnabled = false;
 
         private void Awake()
         {
@@ -42,8 +44,36 @@ namespace ArtifactofTheKing
             R2API.ContentAddition.AddArtifactDef(King);
 
             RoR2.Language.collectLanguageRootFolders += Language_collectLanguageRootFolders;
+            RoR2.RunArtifactManager.onArtifactEnabledGlobal += RunArtifactManager_onArtifactEnabledGlobal;
+            RoR2.RunArtifactManager.onArtifactDisabledGlobal += RunArtifactManager_onArtifactDisabledGlobal;
+        }
 
-            On.RoR2.Run.Start += Run_Start;
+        private void RunArtifactManager_onArtifactEnabledGlobal([NotNull] RunArtifactManager runArtifactManager, [NotNull] ArtifactDef artifactDef)
+        {
+            if (artifactDef == King && !isEnabled)
+            {
+                isEnabled = true;
+                Logger.LogMessage("Initializing modded stats");
+                AddHooks();
+                AdjustSkills();
+                AdjustStats();
+            }
+        }
+
+        private void RunArtifactManager_onArtifactDisabledGlobal([NotNull] RunArtifactManager runArtifactManager, [NotNull] ArtifactDef artifactDef)
+        {
+            if (artifactDef == King && isEnabled)
+            {
+                isEnabled = false;
+                Logger.LogMessage("Reverting to vanilla stats");
+                RemoveHooks();
+                RevertSkills();
+                RevertStats();
+            }
+        }
+
+        private void AddHooks()
+        {
             On.RoR2.HealthComponent.ServerFixedUpdate += HealthComponent_ServerFixedUpdate;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             On.EntityStates.BrotherMonster.SlideIntroState.OnEnter += SlideIntroState_OnEnter;
@@ -62,9 +92,29 @@ namespace ArtifactofTheKing
             }
         }
 
+        private void RemoveHooks()
+        {
+            On.RoR2.HealthComponent.ServerFixedUpdate -= HealthComponent_ServerFixedUpdate;
+            On.RoR2.HealthComponent.TakeDamage -= HealthComponent_TakeDamage;
+            On.EntityStates.BrotherMonster.SlideIntroState.OnEnter -= SlideIntroState_OnEnter;
+            On.EntityStates.BrotherMonster.SprintBash.OnEnter -= SprintBash_OnEnter;
+            On.EntityStates.BrotherMonster.WeaponSlam.OnEnter -= WeaponSlam_OnEnter;
+            On.EntityStates.BrotherMonster.WeaponSlam.FixedUpdate -= WeaponSlam_FixedUpdate;
+            On.EntityStates.BrotherMonster.Weapon.FireLunarShards.OnEnter -= FireLunarShards_OnEnter;
+
+            // this never worked
+            //On.EntityStates.BrotherMonster.ExitSkyLeap.OnEnter += ExitSkyLeap_OnEnter;
+            // so we write our own shitcode instead
+            //if (KingConfiguration.EnableFixes.Value)
+            //{
+                On.EntityStates.BrotherMonster.ExitSkyLeap.OnEnter -= ExitSkyLeap_OnEnter;
+                On.EntityStates.BrotherMonster.ExitSkyLeap.FixedUpdate -= ExitSkyLeap_FixedUpdate;
+            //}
+        }
+
         private void ExitSkyLeap_FixedUpdate(On.EntityStates.BrotherMonster.ExitSkyLeap.orig_FixedUpdate orig, EntityStates.BrotherMonster.ExitSkyLeap self)
         {
-            if (RunArtifactManager.instance.IsArtifactEnabled(King) && self.isAuthority)
+            if (self.isAuthority)
             {
                 if (self.fixedAge > 0.45f * self.duration && !hasFiredSkyLeapFirst)
                 {
@@ -77,22 +127,24 @@ namespace ArtifactofTheKing
                     self.FireRingAuthority();
                 }
             }
+
             orig(self);
         }
 
         private void ExitSkyLeap_OnEnter(On.EntityStates.BrotherMonster.ExitSkyLeap.orig_OnEnter orig, EntityStates.BrotherMonster.ExitSkyLeap self)
         {
-            if (RunArtifactManager.instance.IsArtifactEnabled(King) && self.isAuthority)
+            if (self.isAuthority)
             {
                 hasFiredSkyLeapFirst = false;
                 hasFiredSkyLeapSecond = false;
             }
+
             orig(self);
         }
 
         private void FireLunarShards_OnEnter(On.EntityStates.BrotherMonster.Weapon.FireLunarShards.orig_OnEnter orig, EntityStates.BrotherMonster.Weapon.FireLunarShards self)
         {
-            if (RunArtifactManager.instance.IsArtifactEnabled(King) && self.isAuthority && self is EntityStates.BrotherMonster.Weapon.FireLunarShardsHurt)
+            if (self.isAuthority && self is EntityStates.BrotherMonster.Weapon.FireLunarShardsHurt)
             {
                 var aimRay = self.GetAimRay();
                 var shardsMuzzleTransform = self.FindModelChild(EntityStates.BrotherMonster.Weapon.FireLunarShards.muzzleString);
@@ -117,12 +169,13 @@ namespace ArtifactofTheKing
                     projectileInfo.rotation = Quaternion.LookRotation(aimRay.direction);
                 }
             }
+
             orig(self);
         }
 
         private void WeaponSlam_FixedUpdate(On.EntityStates.BrotherMonster.WeaponSlam.orig_FixedUpdate orig, EntityStates.BrotherMonster.WeaponSlam self)
         {
-            if (RunArtifactManager.instance.IsArtifactEnabled(King) && self.isAuthority)
+            if (self.isAuthority)
             {
                 if (self.hasDoneBlastAttack)
                 {
@@ -153,16 +206,17 @@ namespace ArtifactofTheKing
 
         private void WeaponSlam_OnEnter(On.EntityStates.BrotherMonster.WeaponSlam.orig_OnEnter orig, EntityStates.BrotherMonster.WeaponSlam self)
         {
-            if (RunArtifactManager.instance.IsArtifactEnabled(King) && self.isAuthority)
+            if (self.isAuthority)
             {
                 hasFiredWeaponSlam = false;
             }
+
             orig(self);
         }
 
         private void SprintBash_OnEnter(On.EntityStates.BrotherMonster.SprintBash.orig_OnEnter orig, EntityStates.BrotherMonster.SprintBash self)
         {
-            if (RunArtifactManager.instance.IsArtifactEnabled(King) && self.isAuthority)
+            if (self.isAuthority)
             {
                 var aimRay = self.GetAimRay();
                 for (int i = 0; i < KingConfiguration.SecondaryFan.Value; i++)
@@ -189,12 +243,13 @@ namespace ArtifactofTheKing
                         DamageColorIndex.Default);
                 }
             }
+
             orig(self);
         }
 
         private void SlideIntroState_OnEnter(On.EntityStates.BrotherMonster.SlideIntroState.orig_OnEnter orig, EntityStates.BrotherMonster.SlideIntroState self)
         {
-            if (RunArtifactManager.instance.IsArtifactEnabled(King) && self.isAuthority)
+            if (self.isAuthority)
             {
                 var aimRay = self.GetAimRay();
                 for (int i = 0; i < KingConfiguration.UtilityShotgun.Value; i++)
@@ -211,13 +266,16 @@ namespace ArtifactofTheKing
                     aimRay.direction = Util.ApplySpread(aimRay.direction, 0f, 4f, 4f, 4f, 0f, 0f);
                 }
             }
+
             orig(self);
         }
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
             orig(self, damageInfo);
-            if (RunArtifactManager.instance.IsArtifactEnabled(King))
+
+            // stupid hack
+            if (self && self.name.StartsWith("Brother"))
             {
                 float num = damageInfo.damage / self.fullCombinedHealth * 100f * 50f * self.itemCounts.adaptiveArmor;
                 self.adaptiveArmorValue = Mathf.Min(self.adaptiveArmorValue + num, 900f);
@@ -227,27 +285,12 @@ namespace ArtifactofTheKing
         private void HealthComponent_ServerFixedUpdate(On.RoR2.HealthComponent.orig_ServerFixedUpdate orig, HealthComponent self, float deltaTime)
         {
             orig(self, deltaTime);
-            if (RunArtifactManager.instance.IsArtifactEnabled(King))
+
+            // stupid hack
+            if (self && self.name.StartsWith("Brother"))
             {
                 self.adaptiveArmorValue = Mathf.Max(0, self.adaptiveArmorValue - 100f * deltaTime);
             }
-        }
-
-        private void Run_Start(On.RoR2.Run.orig_Start orig, Run self)
-        {
-            if (RunArtifactManager.instance.IsArtifactEnabled(King))
-            {
-                Logger.LogMessage("Initializing modded stats");
-                AdjustSkills();
-                AdjustStats();
-            }
-            else
-            {
-                Logger.LogMessage("Reverting to vanilla stats");
-                RevertSkills();
-                RevertStats();
-            }
-            orig(self);
         }
 
         private void AdjustSkills()
