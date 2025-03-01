@@ -37,3 +37,7 @@
 `1.2.1`
 - Fixed Mithrix stats not being reverted to correct values upon disabling the artifact.
 - Added russian localization.
+
+`1.2.2`
+- .score was here to make the mod good, they really are the best at everything
+- Hooks and stat changes moved to artifact enable/disable callbacks
