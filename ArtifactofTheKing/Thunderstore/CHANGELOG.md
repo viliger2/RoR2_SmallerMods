@@ -41,3 +41,7 @@
 `1.2.2`
 - .score was here to make the mod good, they really are the best at everything
 - Hooks and stat changes moved to artifact enable/disable callbacks
+
+`1.2.3`
+- Fixed Mithrix firing additional shards in P4 instead of P1+P3.
+- Added separate config option to enable additional shards for P1+P3 and P4.
