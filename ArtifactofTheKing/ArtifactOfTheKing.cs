@@ -14,7 +14,7 @@ namespace ArtifactofTheKing
     {
         public const string Author = "Original by Blobface, ported to SoTS by viliger";
         public const string ModName = "Artifact of the King";
-        public const string Version = "1.2.2";
+        public const string Version = "1.2.3";
         public const string GUID = "com.Blobface.ArtifactKing";
 
         public static ArtifactDef King;
@@ -144,7 +144,22 @@ namespace ArtifactofTheKing
 
         private void FireLunarShards_OnEnter(On.EntityStates.BrotherMonster.Weapon.FireLunarShards.orig_OnEnter orig, EntityStates.BrotherMonster.Weapon.FireLunarShards self)
         {
-            if (self.isAuthority && self is EntityStates.BrotherMonster.Weapon.FireLunarShardsHurt)
+            if (self.isAuthority)
+            {
+                if(!(self is EntityStates.BrotherMonster.Weapon.FireLunarShardsHurt) && KingConfiguration.AdditionalShards.Value)
+                {
+                    FireAdditionalShards();
+                }
+
+                if (self is EntityStates.BrotherMonster.Weapon.FireLunarShardsHurt && KingConfiguration.AdditionalShardsHurt.Value)
+                {
+                    FireAdditionalShards();
+                }
+            }
+
+            orig(self);
+
+            void FireAdditionalShards()
             {
                 var aimRay = self.GetAimRay();
                 var shardsMuzzleTransform = self.FindModelChild(EntityStates.BrotherMonster.Weapon.FireLunarShards.muzzleString);
@@ -169,8 +184,6 @@ namespace ArtifactofTheKing
                     projectileInfo.rotation = Quaternion.LookRotation(aimRay.direction);
                 }
             }
-
-            orig(self);
         }
 
         private void WeaponSlam_FixedUpdate(On.EntityStates.BrotherMonster.WeaponSlam.orig_FixedUpdate orig, EntityStates.BrotherMonster.WeaponSlam self)

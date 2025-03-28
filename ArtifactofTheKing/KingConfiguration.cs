@@ -76,6 +76,10 @@ namespace ArtifactofTheKing
 
         public static ConfigEntry<float> ShardCone { get; set; }
 
+        public static ConfigEntry<bool> AdditionalShards { get; set; }
+
+        public static ConfigEntry<bool> AdditionalShardsHurt { get; set; }
+
         public static void PopulateConfig(ConfigFile config)
         {
             EnableFixes = config.Bind<bool>("Update", "Enabled quote fixes unquote", true, "Enables fixes to what I (viliger) believe to be bugs. This ammounts to two more wave attacks as Mithix lands. Leave disabled if you want it to function as it was originally.");
@@ -115,6 +119,8 @@ namespace ArtifactofTheKing
             ShardHoming = config.Bind<float>("Skillmods", "ShardHoming", 30f, "How strongly lunar shards home in to targets. Vanilla is 20f");
             ShardRange = config.Bind<float>("Skillmods", "ShardRange", 60f, "Range (distance) in which shards look for targets");
             ShardCone = config.Bind<float>("Skillmods", "ShardCone", 180f, "Cone (Angle) in which shards look for targets");
+            AdditionalShards = config.Bind<bool>("Skillmods", "Additional Shards in P1 and P3", true, "Fire additional shards in P1 and P3.");
+            AdditionalShardsHurt = config.Bind<bool>("Skillmods", "Additional Shards in P4", true, "Fire additional shards in P4.");
         }
 
     }
