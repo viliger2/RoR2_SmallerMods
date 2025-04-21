@@ -14,6 +14,13 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 
+// TODO:
+// 1. Unfuck skills, whatever the hell the hook is doing is not good, you should just modify the prefab,
+// but that means creating skill families for every single body and then creating skilldefs for that, modifying AI, modifying bodies and skill locators...
+// 2. Add language file, since voidling title is currently hardcoded as a string intead of a token
+// 3. go through every skill state and check for networking, add authority checks, etc.
+// 4. remove the asset list at the bottom, there is no need to keep it like that (outside of maybe projectile clones).
+
 namespace FathomlessVoidling
 {
     [BepInDependency(R2API.ContentManagement.R2APIContentManager.PluginGUID)]
