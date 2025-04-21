@@ -163,7 +163,7 @@ namespace FathomlessVoidling
 
         private void TeleporterInteraction_AttemptToSpawnAllEligiblePortals1(On.RoR2.TeleporterInteraction.orig_AttemptToSpawnAllEligiblePortals orig, TeleporterInteraction self)
         {
-            if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("skymeadow") && ModConfig.enableAltMoon.Value)
+            if (self.beginContextString.Contains("LUNAR") && ModConfig.enableAltMoon.Value)
             {
                 List<PortalSpawner> list = self.portalSpawners.ToList<PortalSpawner>();
                 PortalSpawner portalSpawner = list.Find((PortalSpawner x) => x.portalSpawnCard == FathomlessVoidling.locusPortalCard);
@@ -215,6 +215,11 @@ namespace FathomlessVoidling
 
         private void SpawnLocusPortal(Transform transform, Xoroshiro128Plus rng)
         {
+            if (!NetworkServer.active)
+            {
+                return;
+            }
+
             DirectorCore instance = DirectorCore.instance;
             DirectorPlacementRule directorPlacementRule = new DirectorPlacementRule();
             directorPlacementRule.minDistance = 10f;
@@ -227,6 +232,10 @@ namespace FathomlessVoidling
             if (gameObject)
             {
                 NetworkServer.Spawn(gameObject);
+                Chat.SendBroadcastChat(new Chat.SimpleChatMessage
+                {
+                    baseToken = "PORTAL_VOID_OPEN"
+                });
             }
         }
 

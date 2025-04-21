@@ -1,3 +1,9 @@
+**0.9.2**
+
+- Removed RiskOfOptions as hard dependency, now it is soft dependency.
+- Rewrote some logic to rely less on hooks.
+- Added chat message on void portal spawning. Void portal now spawns when lunar teleporter is charged (changed from checking if current scene is Sky Meadow).
+
 **0.9.1**
 
 - Stage 5 locus portal bug fix (thanks prod o7)

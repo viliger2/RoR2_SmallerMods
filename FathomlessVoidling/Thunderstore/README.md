@@ -1,3 +1,14 @@
+# DISCLAMER
+This is fixed version of [OldFathomlessVoidling by Smxrez and Nuxlar](https://thunderstore.io/package/Smxrez/OldFathomlessVoidling/). It was made with permission from both Smxrez and Nuxlar. The following fixes have been made:
+
+* Mod is fixed for SoTS
+* Some code improvements to rely less on hooks but not enough to call the code "good".
+* Networking is not tested and chances are it doesn't work (due to original spicy code).
+* RiskOfOptions is not longer a hard dependency.
+* Some additional changes that can be found in change log.
+
+Below is the original readme.
+
 # Old Fathomless Voidling
 
 Pre 1.0 fathomless uploaded with permission from nuxlar all credit goes to them as they are the original author. (https://thunderstore.io/package/Nuxlar/)
