@@ -1,3 +1,8 @@
+**0.9.3**
+
+- Recompile for DLC2 Update 3.
+- Fixed Singularity (Phase 2 vacuum attack) spawning vacuum at Voidling feet instead of center of the arena.
+
 **0.9.2**
 
 - Removed RiskOfOptions as hard dependency, now it is soft dependency.

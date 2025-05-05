@@ -31,7 +31,7 @@ namespace FathomlessVoidling
     public class FathomlessVoidling : BaseUnityPlugin
     {
         public const string ModName = "FathomlessVoidling";
-        public const string Version = "0.9.2";
+        public const string Version = "0.9.3";
         public const string GUID = "com.Nuxlar.FathomlessVoidling";
 
         public void Awake()
