@@ -20,7 +20,8 @@ using UnityEngine.Networking;
 // 2. Add language file, since voidling title is currently hardcoded as a string intead of a token
 // 3. go through every skill state and check for networking, add authority checks, etc.
 // 4. remove the asset list at the bottom, there is no need to keep it like that (outside of maybe projectile clones).
-
+// 5. write propper contentpack instead of relying on ContentAddition
+// 6. maybe implement void cutscene? not like its difficult, its just like 3 states.
 namespace FathomlessVoidling
 {
     [BepInDependency(R2API.ContentManagement.R2APIContentManager.PluginGUID)]
@@ -160,7 +161,7 @@ namespace FathomlessVoidling
             orig.Invoke(self);
             if (self.characterBody.name == "MiniVoidRaidCrabBodyPhase2(Clone)")
             {
-                Transform transform = VoidRaidGauntletController.instance.currentDonut.root.transform.Find("ReflectionProbe, Center");
+                Transform transform = VoidRaidGauntletController.instance.currentDonut.root.transform.Find("HOLDER: Skybox+PP/ReflectionProbe, Center");
                 if (transform)
                 {
                     self.vacuumOrigin = transform;
