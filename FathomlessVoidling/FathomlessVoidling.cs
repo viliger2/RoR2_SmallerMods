@@ -31,7 +31,7 @@ namespace FathomlessVoidling
     public class FathomlessVoidling : BaseUnityPlugin
     {
         public const string ModName = "FathomlessVoidling";
-        public const string Version = "0.9.3";
+        public const string Version = "0.9.4";
         public const string GUID = "com.Nuxlar.FathomlessVoidling";
 
         public void Awake()
@@ -46,7 +46,10 @@ namespace FathomlessVoidling
             RoR2.Stage.onServerStageBegin += Stage_onServerStageBegin;
             On.RoR2.VoidStageMissionController.RequestFog += VoidStageMissionController_RequestFog;
             On.RoR2.TeleporterInteraction.AttemptToSpawnAllEligiblePortals += TeleporterInteraction_AttemptToSpawnAllEligiblePortals1;
-            On.EntityStates.VoidRaidCrab.BaseVacuumAttackState.OnEnter += BaseVacuumAttackState_OnEnter;
+            if (ModConfig.Phase2Vacuum.Value)
+            {
+                On.EntityStates.VoidRaidCrab.BaseVacuumAttackState.OnEnter += BaseVacuumAttackState_OnEnter;
+            }
             FathomlessVoidling.voidRaid.blockOrbitalSkills = false;
         }
 

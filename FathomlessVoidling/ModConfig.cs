@@ -20,6 +20,7 @@ namespace FathomlessVoidling
             ModConfig.secCD = config.Bind<int>("Skills", "Secondary Cooldown", 40, "Cooldown for Secondary (Vacuum, Singularity, Crush).");
             ModConfig.utilCD = config.Bind<int>("Skills", "Util Cooldown", 20, "Cooldown for Transpose (Blink).");
             ModConfig.specCD = config.Bind<int>("Skills", "Special Cooldown", 30, "Cooldown for Special (Rend, SpinBeam, Reap).");
+            ModConfig.Phase2Vacuum = config.Bind<bool>("Skills", "Phase 2 Singularity Changes", true, "Enables changes to Vaccum/Singularity attack in P2 so it spawns in the center of the arena instead of under Voidling.");
 
             if (ModCompat.RiskOfOptionsCompat.enabled)
             {
@@ -71,5 +72,7 @@ namespace FathomlessVoidling
         public static ConfigEntry<int> utilCD;
 
         public static ConfigEntry<int> specCD;
+
+        public static ConfigEntry<bool> Phase2Vacuum;
     }
 }

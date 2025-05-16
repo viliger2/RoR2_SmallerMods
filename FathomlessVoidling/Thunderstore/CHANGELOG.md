@@ -1,3 +1,7 @@
+**0.9.4**
+
+- Added config option to disable Singularity (Phase 2 vacuum attack) fixes from 0.9.3. 
+
 **0.9.3**
 
 - Recompile for DLC2 Update 3.
