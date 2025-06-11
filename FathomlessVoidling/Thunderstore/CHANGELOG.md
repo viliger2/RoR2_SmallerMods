@@ -1,3 +1,7 @@
+**0.9.5**
+
+- I've accidentally uploaded 0.9.2 as 0.9.4. Oops.
+
 **0.9.4**
 
 - Added config option to disable Singularity (Phase 2 vacuum attack) fixes from 0.9.3. 
