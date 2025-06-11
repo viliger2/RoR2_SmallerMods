@@ -1,10 +1,11 @@
 {
     "name": "Artifact_of_the_King",
-    "version_number": "1.2.3",
+    "version_number": "1.2.4",
     "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/ArtifactofTheKing",
     "description": "Artifact that makes Mithrix more difficult. Fixed for SoTS.",
     "dependencies": [
-        "bbepis-BepInExPack-5.4.2117",
+        "bbepis-BepInExPack-5.4.2119",
+		"RiskofThunder-RoR2BepInExPack-1.31.0",
         "RiskofThunder-R2API_ContentManagement-1.0.8"
     ]
 }

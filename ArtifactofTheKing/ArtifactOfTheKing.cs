@@ -14,12 +14,14 @@ namespace ArtifactofTheKing
     {
         public const string Author = "Original by Blobface, ported to SoTS by viliger";
         public const string ModName = "Artifact of the King";
-        public const string Version = "1.2.3";
+        public const string Version = "1.2.4";
         public const string GUID = "com.Blobface.ArtifactKing";
 
         public static ArtifactDef King;
 
         private static GameObject Mithrix;
+
+        private static GameObject BrotherGlassBody;
 
         private static bool hasFiredWeaponSlam = false; // why
         private static bool hasFiredSkyLeapFirst = false; // now this is OUR shitcode
@@ -46,6 +48,63 @@ namespace ArtifactofTheKing
             RoR2.Language.collectLanguageRootFolders += Language_collectLanguageRootFolders;
             RoR2.RunArtifactManager.onArtifactEnabledGlobal += RunArtifactManager_onArtifactEnabledGlobal;
             RoR2.RunArtifactManager.onArtifactDisabledGlobal += RunArtifactManager_onArtifactDisabledGlobal;
+
+            ModifyBrotherGlass();
+        }
+
+        private void ModifyBrotherGlass()
+        {
+            BrotherGlassBody = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_Junk_BrotherGlass.BrotherGlassBody_prefab).WaitForCompletion();
+            var mdlBrother = BrotherGlassBody.transform.Find("ModelBase/mdlBrother");
+            var mesh = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.mdlBrother_fbx).WaitForCompletion();
+
+            if (mdlBrother)
+            {
+                if (mdlBrother.TryGetComponent<ModelSkinController>(out var modelSkinController))
+                {
+                    UnityEngine.Object.DestroyImmediate(modelSkinController);
+                }
+                if (mdlBrother.TryGetComponent<Animator>(out var animator))
+                {
+                    animator.runtimeAnimatorController = Addressables.LoadAssetAsync<RuntimeAnimatorController>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.animBrother_controller).WaitForCompletion();
+                    animator.avatar = mesh.GetComponent<Animator>().avatar;
+                }
+            }
+
+            var eye = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherArmature/ROOT/base/stomach/chest/neck/head/eyeball/BrotherEye");
+            if (eye) 
+            {
+                eye.GetComponent<MeshFilter>().mesh = mesh.transform.Find("BrotherArmature/ROOT/base/stomach/chest/neck/head/eyeball/BrotherEye").GetComponent<MeshFilter>().mesh;
+                eye.GetComponent<MeshRenderer>().material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.matBrotherEye_mat).WaitForCompletion();
+            }
+
+            var bodyMesh = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherBodyMesh");
+            if (bodyMesh) 
+            {
+                bodyMesh.GetComponent<SkinnedMeshRenderer>().sharedMesh = mesh.transform.Find("BrotherBodyMesh").GetComponent<SkinnedMeshRenderer>().sharedMesh;
+            }
+
+            var hammerConcrete = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherHammerConcrete");
+            if (hammerConcrete) 
+            {
+                hammerConcrete.GetComponent<SkinnedMeshRenderer>().sharedMesh = mesh.transform.Find("BrotherHammerConcrete").GetComponent<SkinnedMeshRenderer>().sharedMesh;
+            }
+
+            var hammerStib = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherHammerConcrete/BrotherHammerStib");
+            if (hammerStib) 
+            {
+                var hammerStibSMR = hammerStib.GetComponent<SkinnedMeshRenderer>();
+                hammerStibSMR.sharedMesh = mesh.transform.Find("BrotherHammerConcrete/BrotherHammerStib").GetComponent<SkinnedMeshRenderer>().sharedMesh;
+                hammerStibSMR.material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.matBrotherStib_mat).WaitForCompletion();
+            }
+
+            var stibPieces = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherStibPieces");
+            if (stibPieces) 
+            {
+                var hammerPiecesSMR = stibPieces.GetComponent<SkinnedMeshRenderer>();
+                hammerPiecesSMR.sharedMesh = mesh.transform.Find("BrotherStibPieces").GetComponent<SkinnedMeshRenderer>().sharedMesh;
+                hammerPiecesSMR.material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.matBrotherStib_mat).WaitForCompletion();
+            }
         }
 
         private void RunArtifactManager_onArtifactEnabledGlobal([NotNull] RunArtifactManager runArtifactManager, [NotNull] ArtifactDef artifactDef)

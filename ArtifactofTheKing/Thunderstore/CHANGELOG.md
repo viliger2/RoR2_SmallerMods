@@ -45,3 +45,6 @@
 `1.2.3`
 - Fixed Mithrix firing additional shards in P4 instead of P1+P3.
 - Added separate config option to enable additional shards for P1+P3 and P4.
+
+`1.2.4`
+- Fixed Glass Mithrix having incorrect materials due to MemOp update.
