@@ -1,7 +1,7 @@
 {
     "name": "PublicShaming",
     "version_number": "1.0.0",
-    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/ActualPrinterIcon",
+    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/PublicShaming",
     "description": "Prints a chat message when player activates portal or teleporter.",
     "dependencies": [
 	    "bbepis-BepInExPack-5.4.2102"
