@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtifactofTheKing", "Artifa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegisterCommandChest", "RegisterCommandChest\RegisterCommandChest.csproj", "{9D92CFF8-3897-48F7-B3C3-07068CC1CE25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FathomlessVoidling", "FathomlessVoidling\FathomlessVoidling.csproj", "{877236E0-9DA5-4943-92F7-1355C1854212}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FathomlessVoidling", "FathomlessVoidling\FathomlessVoidling.csproj", "{877236E0-9DA5-4943-92F7-1355C1854212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicShaming", "PublicShaming\PublicShaming.csproj", "{4524D4EA-2BFE-46C7-B399-F0A26201A5C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{877236E0-9DA5-4943-92F7-1355C1854212}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{877236E0-9DA5-4943-92F7-1355C1854212}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{877236E0-9DA5-4943-92F7-1355C1854212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4524D4EA-2BFE-46C7-B399-F0A26201A5C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4524D4EA-2BFE-46C7-B399-F0A26201A5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4524D4EA-2BFE-46C7-B399-F0A26201A5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4524D4EA-2BFE-46C7-B399-F0A26201A5C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
