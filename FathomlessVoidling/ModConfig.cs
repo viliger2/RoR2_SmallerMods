@@ -20,12 +20,13 @@ namespace FathomlessVoidling
             ModConfig.secCD = config.Bind<int>("Skills", "Secondary Cooldown", 40, "Cooldown for Secondary (Vacuum, Singularity, Crush).");
             ModConfig.utilCD = config.Bind<int>("Skills", "Util Cooldown", 20, "Cooldown for Transpose (Blink).");
             ModConfig.specCD = config.Bind<int>("Skills", "Special Cooldown", 30, "Cooldown for Special (Rend, SpinBeam, Reap).");
-            ModConfig.Phase2Vacuum = config.Bind<bool>("Skills", "Phase 2 Singularity Changes", true, "Enables changes to Vaccum/Singularity attack in P2 so it spawns in the center of the arena instead of under Voidling.");
+            ModConfig.EnableVoidCutscene = config.Bind("General", "Enable Void outro cutscene", true, "Enables somewhat unfinished void outro cutscene.");
 
             if (ModCompat.RiskOfOptionsCompat.enabled)
             {
                 ModCompat.RiskOfOptionsCompat.CreateNewOption(ModConfig.enableAltMoon);
                 ModCompat.RiskOfOptionsCompat.CreateNewOption(ModConfig.enableVoidFog);
+                ModCompat.RiskOfOptionsCompat.CreateNewOption(ModConfig.EnableVoidCutscene);
 
                 ModCompat.RiskOfOptionsCompat.CreateNewOption(baseHealth, 1000f, 2000f, 50f);
                 ModCompat.RiskOfOptionsCompat.CreateNewOption(levelHealth, 100f, 500f, 25f);
@@ -44,6 +45,8 @@ namespace FathomlessVoidling
                 ModCompat.RiskOfOptionsCompat.SetDescription();
             }
         }
+
+        public static ConfigEntry<bool> EnableVoidCutscene;
 
         public static ConfigEntry<bool> enableAltMoon;
 
@@ -72,7 +75,5 @@ namespace FathomlessVoidling
         public static ConfigEntry<int> utilCD;
 
         public static ConfigEntry<int> specCD;
-
-        public static ConfigEntry<bool> Phase2Vacuum;
     }
 }

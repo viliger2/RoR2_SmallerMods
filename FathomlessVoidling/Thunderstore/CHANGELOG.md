@@ -1,3 +1,12 @@
+**0.10.1**
+
+- Basically a complete rewrite of the mod for better networking, performance and stabilty.
+- Removed Singularity fix introduced in 0.9.3 together with option introduced in 0.9.4.
+  - _Those fixes are simply not networkable due to how game works. Sadly there isn't much that can be done and I've decided to just gut the feature entirely. This also fixes heavy network desync any time Voidling uses the attack in P2._
+- Added somewhat unfinished void cutscene on using Deep Void portal. This can be disabled in the config.
+  - _The cutscene is in the game, just was never finished nor it was accessable._
+- All config options now require game restart in Risk of Options.
+
 **0.9.5**
 
 - I've accidentally uploaded 0.9.2 as 0.9.4. Oops.

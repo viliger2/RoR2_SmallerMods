@@ -1,149 +1,56 @@
 ﻿using EntityStates;
 using EntityStates.VoidRaidCrab.Weapon;
-using RoR2;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace FathomlessVoidling.VoidlingEntityStates.Phase1
 {
-    public class ChargeRend : BaseMultiBeamState
+    public class ChargeRend : ChargeMultiBeam
     {
+        public static float staticBaseDuration = 1f;
+
+        public static GameObject staticChargeEffectPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabTripleBeamChargeUp_prefab).WaitForCompletion();
+
+        public static GameObject staticWarningLaserVfxPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.MultiBeamRayIndicator_prefab).WaitForCompletion();
+
+        public static string staticMuzzleName = "EyeProjectileCenter";
+
+        public static string staticEnterSoundString = "Play_voidRaid_snipe_chargeUp";
+
+        public static bool staticIsSoundScaledByAttackSpeed = false;
+
+        public static string staticAnimationLayerName = "Gesture";
+
+        public static string staticAnimationStateName = "ChargeMultiBeam";
+
+        public static string staticAnimationPlaybackRateParam = "MultiBeam.playbackRate";
+
         public override void OnEnter()
         {
+            baseDuration = staticBaseDuration;
+            chargeEffectPrefab = staticChargeEffectPrefab;
+            warningLaserVfxPrefab = staticWarningLaserVfxPrefab;
+            muzzleName = staticMuzzleName;
+            enterSoundString = staticEnterSoundString;
+            isSoundScaledByAttackSpeed = staticIsSoundScaledByAttackSpeed;
+            animationLayerName = staticAnimationLayerName;
+            animationStateName = staticAnimationStateName;
+            animationPlaybackRateParam = staticAnimationPlaybackRateParam;
             base.OnEnter();
-            duration = baseDuration / attackSpeedStat;
-            PlayAnimation(animationLayerName, animationStateName, animationPlaybackRateParam, duration);
-            ChildLocator modelChildLocator = GetModelChildLocator();
-            if (modelChildLocator && chargeEffectPrefab)
-            {
-                Transform transform = modelChildLocator.FindChild(muzzleName) ?? characterBody.coreTransform;
-                if (transform)
-                {
-                    chargeEffectInstance = Object.Instantiate<GameObject>(chargeEffectPrefab, transform.position, transform.rotation);
-                    chargeEffectInstance.transform.parent = transform;
-                    ScaleParticleSystemDuration component = chargeEffectInstance.GetComponent<ScaleParticleSystemDuration>();
-                    if (component)
-                    {
-                        component.newDuration = duration;
-                    }
-                }
-            }
-            if (!string.IsNullOrEmpty(enterSoundString))
-            {
-                if (isSoundScaledByAttackSpeed)
-                {
-                    Util.PlayAttackSpeedSound(enterSoundString, gameObject, attackSpeedStat);
-                }
-                else
-                {
-                    Util.PlaySound(enterSoundString, gameObject);
-                }
-            }
-            warningLaserEnabled = true;
-        }
-
-        public override void OnExit()
-        {
-            warningLaserEnabled = false;
-            Destroy(chargeEffectInstance);
-            base.OnExit();
         }
 
         public override void FixedUpdate()
         {
-            base.FixedUpdate();
-            if (!isAuthority || (double)fixedAge < duration)
+            fixedAge += GetDeltaTime();
+            if (isAuthority && fixedAge > duration)
             {
-                return;
+                outer.SetNextState(new Rend());
             }
-            outer.SetNextState(new Rend());
-        }
-
-        public override void Update()
-        {
-            base.Update();
-            UpdateWarningLaser();
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Vehicle;
+            return InterruptPriority.PrioritySkill;
         }
-
-        private bool warningLaserEnabled
-        {
-            get
-            {
-                return warningLaserVfxInstance;
-            }
-            set
-            {
-                if (value == warningLaserEnabled)
-                {
-                    return;
-                }
-                if (!value)
-                {
-                    Destroy(warningLaserVfxInstance);
-                    warningLaserVfxInstance = null;
-                    warningLaserVfxInstanceRayAttackIndicator = null;
-                    return;
-                }
-                if (!warningLaserVfxPrefab)
-                {
-                    return;
-                }
-                warningLaserVfxInstance = Object.Instantiate<GameObject>(warningLaserVfxPrefab);
-                warningLaserVfxInstanceRayAttackIndicator = warningLaserVfxInstance.GetComponent<RayAttackIndicator>();
-                UpdateWarningLaser();
-            }
-        }
-
-        private void UpdateWarningLaser()
-        {
-            if (!warningLaserVfxInstanceRayAttackIndicator)
-            {
-                return;
-            }
-            warningLaserVfxInstanceRayAttackIndicator.attackRange = beamMaxDistance;
-            Ray ray;
-            Vector3 vector;
-            CalcBeamPath(out ray, out vector);
-            warningLaserVfxInstanceRayAttackIndicator.attackRay = ray;
-        }
-
-        [SerializeField]
-        public float baseDuration = new ChargeMultiBeam().baseDuration;
-
-        [SerializeField]
-        public GameObject chargeEffectPrefab = new ChargeMultiBeam().chargeEffectPrefab;
-
-        [SerializeField]
-        public GameObject warningLaserVfxPrefab = new ChargeMultiBeam().warningLaserVfxPrefab;
-
-        [SerializeField]
-        public new string muzzleName = new ChargeMultiBeam().muzzleName;
-
-        [SerializeField]
-        public string enterSoundString = new ChargeMultiBeam().enterSoundString;
-
-        [SerializeField]
-        public bool isSoundScaledByAttackSpeed = new ChargeMultiBeam().isSoundScaledByAttackSpeed;
-
-        [SerializeField]
-        public string animationLayerName = new ChargeMultiBeam().animationLayerName;
-
-        [SerializeField]
-        public string animationStateName = new ChargeMultiBeam().animationStateName;
-
-        [SerializeField]
-        public string animationPlaybackRateParam = new ChargeMultiBeam().animationPlaybackRateParam;
-
-        private float duration;
-
-        private GameObject chargeEffectInstance;
-
-        private GameObject warningLaserVfxInstance;
-
-        private RayAttackIndicator warningLaserVfxInstanceRayAttackIndicator;
     }
 }

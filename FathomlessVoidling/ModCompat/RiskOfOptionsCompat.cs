@@ -34,17 +34,17 @@ namespace FathomlessVoidling.ModCompat
 
         public static void CreateNewOption(ConfigEntry<float> entry, float min = 0, float max = 5, float increment = 0.01f)
         {
-            ModSettingsManager.AddOption(new StepSliderOption(entry, new StepSliderConfig() { min = 0, max = 5, increment = 0.01f }));
+            ModSettingsManager.AddOption(new StepSliderOption(entry, new StepSliderConfig() { min = min, max = max, increment = increment, restartRequired = true }));
         }
 
         public static void CreateNewOption(ConfigEntry<bool> entry)
         {
-            ModSettingsManager.AddOption(new CheckBoxOption(entry));
+            ModSettingsManager.AddOption(new CheckBoxOption(entry, true));
         }
 
         public static void CreateNewOption(ConfigEntry<int> entry, int min = 0, int max = 200)
         {
-            ModSettingsManager.AddOption(new IntSliderOption(entry, new IntSliderConfig() { min = min, max = max }));
+            ModSettingsManager.AddOption(new IntSliderOption(entry, new IntSliderConfig() { min = min, max = max, restartRequired = true }));
         }
     }
 }

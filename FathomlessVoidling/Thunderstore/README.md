@@ -2,9 +2,10 @@
 This is fixed version of [OldFathomlessVoidling by Smxrez and Nuxlar](https://thunderstore.io/package/Smxrez/OldFathomlessVoidling/). It was made with permission from both Smxrez and Nuxlar. The following fixes have been made:
 
 * Mod is fixed for SoTS
-* Some code improvements to rely less on hooks but not enough to call the code "good".
-* Networking is not tested and chances are it doesn't work (due to original spicy code).
+* ~~Some code improvements to rely less on hooks but not enough to call the code "good".~~ Refactoring has been done enough to call the code "adequate" for both solo and network play.
+* ~~Networking is not tested and chances are it doesn't work (due to original spicy code).~~ Networking has been tested and works.
 * RiskOfOptions is not longer a hard dependency.
+* Added option to play unfinished void outro cutscene on interaction with Deep Void portal.
 * Some additional changes that can be found in change log.
 
 Below is the original readme.
