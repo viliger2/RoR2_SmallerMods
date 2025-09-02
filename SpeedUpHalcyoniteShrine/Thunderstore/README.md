@@ -1,0 +1,2 @@
+# SpeedUpHalcyoniteShrine
+Speeds up Halcyonite Shrine charge time by increasing its tick rate (how many times gold gets drained per second). Vanilla value is 5, mod value is 10, so instead of 60 seconds shrine takes 30 seconds to charge. Configurable.
