@@ -1,0 +1,6 @@
+﻿{
+  "strings": {
+    "VILIGER_ARTIFACT_OF_LIMIT_NAME": "Артефакт ограничения",
+    "VILIGER_ARTIFACT_OF_LIMIT_NAME_DESC": "Ограничивает доступные предметы."
+  }
+}

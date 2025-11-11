@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FathomlessVoidling", "Fatho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicShaming", "PublicShaming\PublicShaming.csproj", "{4524D4EA-2BFE-46C7-B399-F0A26201A5C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedUpHalcyoniteShrine", "SpeedUpHalcyoniteShrine\SpeedUpHalcyoniteShrine.csproj", "{E462DBD6-B27D-441C-A807-87D7C5B1C899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeedUpHalcyoniteShrine", "SpeedUpHalcyoniteShrine\SpeedUpHalcyoniteShrine.csproj", "{E462DBD6-B27D-441C-A807-87D7C5B1C899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactOfLimit", "ArtifactOfLimit\ArtifactOfLimit.csproj", "{505A8285-5490-4A19-843E-8B11BB7ED365}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{E462DBD6-B27D-441C-A807-87D7C5B1C899}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E462DBD6-B27D-441C-A807-87D7C5B1C899}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E462DBD6-B27D-441C-A807-87D7C5B1C899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505A8285-5490-4A19-843E-8B11BB7ED365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505A8285-5490-4A19-843E-8B11BB7ED365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505A8285-5490-4A19-843E-8B11BB7ED365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505A8285-5490-4A19-843E-8B11BB7ED365}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
