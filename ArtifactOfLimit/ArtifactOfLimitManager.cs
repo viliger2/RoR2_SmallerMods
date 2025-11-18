@@ -3,24 +3,17 @@ using RoR2.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine.Networking;
 
 namespace ArtifactOfLimit
 {
     public static class ArtifactOfLimitManager
     {
-        internal static ArtifactDef myArtifact;
+        public static ArtifactDef myArtifact;
 
-        private static ItemMask newAvailableItems;
+        internal static ItemMask newAvailableItems;
 
         private static ItemMask oldAvailableItems;
-
-        public static int tier1ItemCount;
-
-        public static int tier2ItemCount;
-
-        public static int tier3ItemCount;
 
         [SystemInitializer(new Type[] { typeof(ArtifactCatalog) })]
         private static void Init()
@@ -54,9 +47,15 @@ namespace ArtifactOfLimit
                 return;
             }
 
-            run.availableItems = oldAvailableItems;
+            if (oldAvailableItems != null)
+            {
+                run.availableItems = oldAvailableItems;
+            }
 
-            ItemMask.Return(newAvailableItems);
+            if (newAvailableItems != null)
+            {
+                ItemMask.Return(newAvailableItems);
+            }
         }
 
         private static void Run_onRunStartGlobal(Run run)
@@ -67,8 +66,32 @@ namespace ArtifactOfLimit
             }
 
             oldAvailableItems = run.availableItems;
+            newAvailableItems = null;
 
+            if (ProperSaveCompat.enabled)
+            {
+                if (ProperSaveCompat.IsLoading())
+                {
+                    ProperSaveCompat.LoadItemMask(out newAvailableItems);
+                }
+                else
+                {
+                    FillArtifactItemMask(ref newAvailableItems, run);
+                }
+            }
+            else
+            {
+                FillArtifactItemMask(ref newAvailableItems, run);
+            }
+
+            run.availableItems = newAvailableItems;
+            run.BuildDropTable();
+        }
+
+        private static void FillArtifactItemMask(ref ItemMask newAvailableItems, Run run)
+        {
             newAvailableItems = ItemMask.Rent();
+
             GenerateItemPool(
                 ref newAvailableItems,
                 run.runRNG,
@@ -130,9 +153,6 @@ namespace ArtifactOfLimit
 
             AddAllItemsToItemMask(ref newAvailableItems, run.availableVoidBossDropList);
 
-            run.availableItems = newAvailableItems;
-            run.BuildDropTable();
-
             void AddAllItemsToItemMask(ref ItemMask itemMask, List<PickupIndex> itemList)
             {
                 foreach (var item in itemList)
@@ -165,8 +185,8 @@ namespace ArtifactOfLimit
 
             ItemIndex GetRandomVoidItem(RoR2.Run run)
             {
-                PickupIndex pickupIndex = PickupIndex.none;
-                switch(run.runRNG.RangeInt(0, 3))
+                PickupIndex pickupIndex;
+                switch (run.runRNG.RangeInt(0, 3))
                 {
                     case 0:
                     default:
@@ -227,11 +247,11 @@ namespace ArtifactOfLimit
             remainingItems.AddRange(utilityItems);
             remainingItems.AddRange(healingItems);
 
-            if(addedDamageItemsCount + addedUtilityItemsCount + addedHealingItemsCount != totalItemCount)
+            if (addedDamageItemsCount + addedUtilityItemsCount + addedHealingItemsCount != totalItemCount)
             {
                 var stillNeedToAdd = totalItemCount - (addedDamageItemsCount + addedUtilityItemsCount + addedHealingItemsCount);
                 var rerollCount = 0;
-                while(stillNeedToAdd > 0 && rerollCount < 10)
+                while (stillNeedToAdd > 0 && rerollCount < 10)
                 {
                     var pickUpIndex = remainingItems[runRng.RangeInt(0, remainingItems.Count)];
                     if (!newAvailableItems.Contains(pickUpIndex))
@@ -276,11 +296,11 @@ namespace ArtifactOfLimit
 
                         addedItemCount++;
                         var itemDef = ItemCatalog.GetItemDef(item);
-                        
+
 
                         if (Config.AffectVoidItems.Value)
                         {
-                            for(int k = 0; k < ContagiousItemManager.transformationInfos.Length; k++)
+                            for (int k = 0; k < ContagiousItemManager.transformationInfos.Length; k++)
                             {
                                 if (ContagiousItemManager.transformationInfos[k].originalItem == item)
                                 {

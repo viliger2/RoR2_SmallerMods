@@ -1,29 +1,43 @@
 ﻿using BepInEx;
+using RoR2;
 using RoR2.ContentManagement;
 using System;
-using UnityEngine.AddressableAssets;
-using UnityEngine;
 using System.Collections;
-using System.Net.NetworkInformation;
-using System.Diagnostics;
+using UnityEngine;
 
 [assembly: HG.Reflection.SearchableAttribute.OptInAttribute]
 namespace ArtifactOfLimit
 {
     [BepInPlugin(GUID, ModName, Version)]
+    [BepInDependency("com.KingEnderBrine.ProperSave", BepInDependency.DependencyFlags.SoftDependency)]
     public class ArtifactOfLimitPlugin : BaseUnityPlugin
     {
         public const string Author = "viliger";
         public const string ModName = "ArtifactOfLimit";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public const string GUID = "com." + Author + "." + ModName;
 
         private void Awake()
         {
             ArtifactOfLimit.Config.PopulateConfig(this.Config);
-            ContentManager.collectContentPackProviders += ContentManager_collectContentPackProviders; ;
-            RoR2.Language.collectLanguageRootFolders += Language_collectLanguageRootFolders; ;
+            ContentManager.collectContentPackProviders += ContentManager_collectContentPackProviders;
+            RoR2.Language.collectLanguageRootFolders += Language_collectLanguageRootFolders;
 
+            if (ProperSaveCompat.enabled)
+            {
+                ProperSaveCompat.RegisterSaveData();
+            }
+
+            On.RoR2.Run.Start += Run_Start;
+        }
+
+        private void Run_Start(On.RoR2.Run.orig_Start orig, Run self)
+        {
+            orig(self);
+            if (RunArtifactManager.instance.IsArtifactEnabled(ArtifactOfLimitManager.myArtifact))
+            {
+                PickupDropTable.RegenerateAll(self);
+            }
         }
 
         private void Language_collectLanguageRootFolders(System.Collections.Generic.List<string> folders)

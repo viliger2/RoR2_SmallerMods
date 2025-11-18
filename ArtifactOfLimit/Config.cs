@@ -1,7 +1,4 @@
 ﻿using BepInEx.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ArtifactOfLimit
 {
@@ -43,7 +40,7 @@ namespace ArtifactOfLimit
             Tier3UtilityTag = config.Bind("Tier 3", "Share of Utility Items", 7f, "Share of Tier 3 items with Utility tag. You can use any value you want, since all Share will be added together and then relative will be calculated.");
 
             AffectVoidItems = config.Bind("Void Items", "Affect Void Items", true, "Only those Void Items that can be converted from selected Tier1-3 item will be selected. Newly Hatched Zoea (and all VoidBoss items) will be always included.");
-            PityVoidItemCount = config.Bind("Void Items", "Pity Void Items Count", 7, "Count of Void Items that will be used if selected item pool has zero corruptable items. Values below 3 will most likely lead to bad time.");
+            PityVoidItemCount = config.Bind("Void Items", "Pity Void Items Count", 5, "Count of Void Items that will be used if selected item pool has zero corruptable items. Values below 3 will most likely lead to а bad time.");
         }
     }
 }
