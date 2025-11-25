@@ -48,3 +48,6 @@
 
 `1.2.4`
 - Fixed Glass Mithrix having incorrect materials due to MemOp update.
+
+`1.2.5`
+- Recompiled for AC.

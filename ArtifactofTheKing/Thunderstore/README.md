@@ -1,7 +1,7 @@
 # DISCLAMER
 This is fixed version of [Artifact of the King by Blobface](https://thunderstore.io/package/Blobface/Artifact_of_the_King/). It was made without permission as for original maker could not be reached. The following fixes have been made:
 
-* Mod is fixed for SoTS
+* Mod is fixed for AC
 * Sky Leap triple wave was not functional in the original release, so I fixed it with option to disable it.
 * Icons for artifact are moved to asset bundle
 * Mod now uses language file instead of hardcoded strings

@@ -14,7 +14,7 @@ namespace ArtifactofTheKing
     {
         public const string Author = "Original by Blobface, ported to SoTS by viliger";
         public const string ModName = "Artifact of the King";
-        public const string Version = "1.2.4";
+        public const string Version = "1.2.5";
         public const string GUID = "com.Blobface.ArtifactKing";
 
         public static ArtifactDef King;
@@ -54,9 +54,9 @@ namespace ArtifactofTheKing
 
         private void ModifyBrotherGlass()
         {
-            BrotherGlassBody = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_Junk_BrotherGlass.BrotherGlassBody_prefab).WaitForCompletion();
+            BrotherGlassBody = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Junk_BrotherGlass.BrotherGlassBody_prefab).WaitForCompletion();
             var mdlBrother = BrotherGlassBody.transform.Find("ModelBase/mdlBrother");
-            var mesh = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.mdlBrother_fbx).WaitForCompletion();
+            var mesh = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Brother.mdlBrother_fbx).WaitForCompletion();
 
             if (mdlBrother)
             {
@@ -66,7 +66,7 @@ namespace ArtifactofTheKing
                 }
                 if (mdlBrother.TryGetComponent<Animator>(out var animator))
                 {
-                    animator.runtimeAnimatorController = Addressables.LoadAssetAsync<RuntimeAnimatorController>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.animBrother_controller).WaitForCompletion();
+                    animator.runtimeAnimatorController = Addressables.LoadAssetAsync<RuntimeAnimatorController>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Brother.animBrother_controller).WaitForCompletion();
                     animator.avatar = mesh.GetComponent<Animator>().avatar;
                 }
             }
@@ -75,7 +75,7 @@ namespace ArtifactofTheKing
             if (eye) 
             {
                 eye.GetComponent<MeshFilter>().mesh = mesh.transform.Find("BrotherArmature/ROOT/base/stomach/chest/neck/head/eyeball/BrotherEye").GetComponent<MeshFilter>().mesh;
-                eye.GetComponent<MeshRenderer>().material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.matBrotherEye_mat).WaitForCompletion();
+                eye.GetComponent<MeshRenderer>().material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Brother.matBrotherEye_mat).WaitForCompletion();
             }
 
             var bodyMesh = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherBodyMesh");
@@ -95,7 +95,7 @@ namespace ArtifactofTheKing
             {
                 var hammerStibSMR = hammerStib.GetComponent<SkinnedMeshRenderer>();
                 hammerStibSMR.sharedMesh = mesh.transform.Find("BrotherHammerConcrete/BrotherHammerStib").GetComponent<SkinnedMeshRenderer>().sharedMesh;
-                hammerStibSMR.material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.matBrotherStib_mat).WaitForCompletion();
+                hammerStibSMR.material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Brother.matBrotherStib_mat).WaitForCompletion();
             }
 
             var stibPieces = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherStibPieces");
@@ -103,7 +103,7 @@ namespace ArtifactofTheKing
             {
                 var hammerPiecesSMR = stibPieces.GetComponent<SkinnedMeshRenderer>();
                 hammerPiecesSMR.sharedMesh = mesh.transform.Find("BrotherStibPieces").GetComponent<SkinnedMeshRenderer>().sharedMesh;
-                hammerPiecesSMR.material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Brother.matBrotherStib_mat).WaitForCompletion();
+                hammerPiecesSMR.material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Brother.matBrotherStib_mat).WaitForCompletion();
             }
         }
 
