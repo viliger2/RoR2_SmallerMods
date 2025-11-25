@@ -1,4 +1,10 @@
 <details>
+<summary>1.0.2 </summary>
+
+* Recompiled for AC.
+* Fixed it so it actually works outside of Command.
+</details>
+<details>
 <summary>1.0.0 </summary>
 
 * Initial release
