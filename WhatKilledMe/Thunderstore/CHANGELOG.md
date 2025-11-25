@@ -1,4 +1,10 @@
 <details>
+<summary>1.0.4 </summary>
+
+* Recompiled for AC.
+  * _I would also like you all to know that Gearbox still haven't addded DamageSource to vanilla enemies. Not even new ones._
+</details>
+<details>
 <summary>1.0.3 </summary>
 
 * Fixed printing "with" even if there is no skill name to get.

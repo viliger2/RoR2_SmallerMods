@@ -11,7 +11,7 @@ namespace WhatKilledMe
     {
         public const string Author = "Viliger";
         public const string ModName = "IDodgedThat";
-        public const string Version = "1.0.3";
+        public const string Version = "1.0.4";
         public const string GUID = "com." + Author + "." + ModName;
 
         public const string LanguageFolder = "Language";
