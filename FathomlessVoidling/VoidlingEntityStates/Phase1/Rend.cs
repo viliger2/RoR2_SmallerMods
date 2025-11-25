@@ -11,11 +11,11 @@ namespace FathomlessVoidling.VoidlingEntityStates.Phase1
     // TODO: add DamageSource
     public class Rend : BaseMultiBeamState
     {
-        public static GameObject tracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.TracerVoidRaidCrabTripleBeamSmall_prefab).WaitForCompletion();
+        public static GameObject tracerEffectPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_VoidRaidCrab.TracerVoidRaidCrabTripleBeamSmall_prefab).WaitForCompletion();
 
-        public static GameObject explosionEffectPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabTripleBeamExplosion_prefab).WaitForCompletion();
+        public static GameObject explosionEffectPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabTripleBeamExplosion_prefab).WaitForCompletion();
 
-        public static GameObject projectilePrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabMultiBeamDotZone_prefab).WaitForCompletion();
+        public static GameObject projectilePrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabMultiBeamDotZone_prefab).WaitForCompletion();
 
         public static float projectileDamageCoefficient = 2f;
 

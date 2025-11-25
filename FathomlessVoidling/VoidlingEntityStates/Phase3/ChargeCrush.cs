@@ -9,7 +9,7 @@ namespace FathomlessVoidling.VoidlingEntityStates.Phase3
     {
         public static float baseDuration = 3.5f;
 
-        public static GameObject missilesMuzzleFlashPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabMuzzleflashEyeMissiles_prefab).WaitForCompletion();
+        public static GameObject missilesMuzzleFlashPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabMuzzleflashEyeMissiles_prefab).WaitForCompletion();
 
         private float duration;
 

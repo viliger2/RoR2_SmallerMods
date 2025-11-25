@@ -9,9 +9,9 @@ namespace FathomlessVoidling.VoidlingEntityStates.Phase1
     {
         public static float staticBaseDuration = 1f;
 
-        public static GameObject staticChargeEffectPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabTripleBeamChargeUp_prefab).WaitForCompletion();
+        public static GameObject staticChargeEffectPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabTripleBeamChargeUp_prefab).WaitForCompletion();
 
-        public static GameObject staticWarningLaserVfxPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.MultiBeamRayIndicator_prefab).WaitForCompletion();
+        public static GameObject staticWarningLaserVfxPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_VoidRaidCrab.MultiBeamRayIndicator_prefab).WaitForCompletion();
 
         public static string staticMuzzleName = "EyeProjectileCenter";
 

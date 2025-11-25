@@ -15,7 +15,7 @@ namespace FathomlessVoidling.VoidlingEntityStates
 
         public static float blinkDistance = 500f;
 
-        public static Material destealthMaterial = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_Imp.matImpDissolve_mat).WaitForCompletion();
+        public static Material destealthMaterial = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Imp.matImpDissolve_mat).WaitForCompletion();
 
         private Transform modelTransform;
 

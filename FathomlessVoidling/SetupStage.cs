@@ -78,7 +78,7 @@ namespace FathomlessVoidling
         {
             if (stage.sceneDef.cachedName == "voidstage")
             {
-                var handle1 = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_LunarCauldrons_LunarCauldron_RedToWhite.Variant_prefab);
+                var handle1 = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_LunarCauldrons.LunarCauldron__RedToWhite_Variant_prefab);
                 if (handle1.IsValid())
                 {
                     handle1.Completed += (result) =>
@@ -93,7 +93,7 @@ namespace FathomlessVoidling
                     };
                 }
 
-                var handle2 = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_LunarCauldrons_LunarCauldron_GreenToRed.Variant_prefab);
+                var handle2 = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_LunarCauldrons.LunarCauldron__GreenToRed_Variant_prefab);
                 if (handle2.IsValid())
                 {
                     handle2.Completed += (result) =>
@@ -111,7 +111,7 @@ namespace FathomlessVoidling
                     };
                 }
 
-                var handle3 = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_Base_LunarCauldrons_LunarCauldron.WhiteToGreen_prefab);
+                var handle3 = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_LunarCauldrons.LunarCauldron__WhiteToGreen_prefab);
                 if (handle3.IsValid())
                 {
                     handle3.Completed += (result) =>

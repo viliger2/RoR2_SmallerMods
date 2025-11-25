@@ -12,11 +12,11 @@ namespace FathomlessVoidling.VoidlingEntityStates
     {
         internal abstract GameObject bombPrefab { get; }
 
-        public static GameObject missilesMuzzleFlashPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabMuzzleflashEyeMissiles_prefab).WaitForCompletion();
+        public static GameObject missilesMuzzleFlashPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabMuzzleflashEyeMissiles_prefab).WaitForCompletion();
 
         public static string missilesMuzzleName = "EyeProjectileCenter";
 
-        public static GameObject missilesProjectilePrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabMissileProjectile_prefab).WaitForCompletion();
+        public static GameObject missilesProjectilePrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC1_VoidRaidCrab.VoidRaidCrabMissileProjectile_prefab).WaitForCompletion();
 
         public static float missilesDamageCoefficient = 0.3f;
 

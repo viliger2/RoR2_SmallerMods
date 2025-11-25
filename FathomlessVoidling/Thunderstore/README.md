@@ -1,7 +1,7 @@
 # DISCLAMER
 This is fixed version of [OldFathomlessVoidling by Smxrez and Nuxlar](https://thunderstore.io/package/Smxrez/OldFathomlessVoidling/). It was made with permission from both Smxrez and Nuxlar. The following fixes have been made:
 
-* Mod is fixed for SoTS
+* Mod is fixed for AC
 * ~~Some code improvements to rely less on hooks but not enough to call the code "good".~~ Refactoring has been done enough to call the code "adequate" for both solo and network play.
 * ~~Networking is not tested and chances are it doesn't work (due to original spicy code).~~ Networking has been tested and works.
 * RiskOfOptions is not longer a hard dependency.
