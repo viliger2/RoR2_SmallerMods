@@ -45,7 +45,10 @@ namespace ArtifactOfLimit
 
         private static void SaveFile_OnGatherSaveData(Dictionary<string, object> saveData)
         {
-            saveData.Add(SAVE_DATA_NAME, new ProperSave.Data.ItemMaskData(ArtifactOfLimitManager.newAvailableItems));
+            if (RunArtifactManager.instance.IsArtifactEnabled(ArtifactOfLimitManager.myArtifact))
+            {
+                saveData.Add(SAVE_DATA_NAME, new ProperSave.Data.ItemMaskData(ArtifactOfLimitManager.newAvailableItems));
+            }
         }
 
 
