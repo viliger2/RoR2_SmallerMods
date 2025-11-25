@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 [assembly: HG.Reflection.SearchableAttribute.OptInAttribute]
 namespace RoR2_PrintersIcon
 {
-    [BepInPlugin("com.Viliger.ActualPrinterIcon", "ActualPrinterIcon", "1.0.1")]
+    [BepInPlugin("com.Viliger.ActualPrinterIcon", "ActualPrinterIcon", "1.0.2")]
     public class ActualPrinterIcon : BaseUnityPlugin
     {
 
@@ -26,10 +26,12 @@ namespace RoR2_PrintersIcon
         {
             if (duplicator)
             {
-                var pingProvider = duplicator.AddComponent<PingInfoProvider>();
-                pingProvider.pingIconOverride = sprite;
+                if(!duplicator.TryGetComponent<PingInfoProvider>(out var pingInfo))
+                {
+                    pingInfo = duplicator.AddComponent<PingInfoProvider>();
+                };
+                pingInfo.pingIconOverride = sprite;
             }
         }
-
     }
 }

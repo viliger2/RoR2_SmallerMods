@@ -1,9 +1,9 @@
 {
-    "name": "ActualPrinterIcon",
-    "version_number": "1.0.1",
-    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/ActualPrinterIcon",
-    "description": "Gives printers their own icon. Client-side.",
-    "dependencies": [
-	    "bbepis-BepInExPack-5.4.2102"
-    ]
+  "name": "ActualPrinterIcon",
+  "version_number": "1.0.2",
+  "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/ActualPrinterIcon",
+  "description": "Gives printers their own icon. Client-side. Yes, I know AC added icon for printers, it looks like shit",
+  "dependencies": [
+    "bbepis-BepInExPack-5.4.2102"
+  ]
 }
