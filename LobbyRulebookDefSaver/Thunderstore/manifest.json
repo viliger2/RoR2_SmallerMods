@@ -1,7 +1,7 @@
 {
   "name": "LobbyRulebookDefSaver",
   "version_number": "1.0.0",
-  "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/ArtifactOfLimit",
+  "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/LobbyRulebookDefSaver",
   "description": "Saves lobby rules by their defs.",
   "dependencies": [
     "bbepis-BepInExPack-5.4.2121"
