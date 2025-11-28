@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicShaming", "PublicSham
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeedUpHalcyoniteShrine", "SpeedUpHalcyoniteShrine\SpeedUpHalcyoniteShrine.csproj", "{E462DBD6-B27D-441C-A807-87D7C5B1C899}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactOfLimit", "ArtifactOfLimit\ArtifactOfLimit.csproj", "{505A8285-5490-4A19-843E-8B11BB7ED365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtifactOfLimit", "ArtifactOfLimit\ArtifactOfLimit.csproj", "{505A8285-5490-4A19-843E-8B11BB7ED365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LobbyRulebookDefSaver", "LobbyRulebookDefSaver\LobbyRulebookDefSaver.csproj", "{1E3BC55D-8836-4098-AEF6-5E340372BD07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{505A8285-5490-4A19-843E-8B11BB7ED365}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{505A8285-5490-4A19-843E-8B11BB7ED365}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{505A8285-5490-4A19-843E-8B11BB7ED365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E3BC55D-8836-4098-AEF6-5E340372BD07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E3BC55D-8836-4098-AEF6-5E340372BD07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E3BC55D-8836-4098-AEF6-5E340372BD07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E3BC55D-8836-4098-AEF6-5E340372BD07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
