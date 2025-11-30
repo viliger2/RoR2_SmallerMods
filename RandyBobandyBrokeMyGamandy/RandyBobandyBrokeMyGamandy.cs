@@ -6,7 +6,8 @@ using UnityEngine.AddressableAssets;
 [assembly: HG.Reflection.SearchableAttribute.OptInAttribute]
 namespace RoR_RandyBobandyBrokeMyGamendy
 {
-    [BepInPlugin("com.Viliger.RandyBobandyBrokeMyGamandy", "RandyBobandyBrokeMyGamandy", "1.0.0")]
+    [BepInPlugin("com.Viliger.RandyBobandyBrokeMyGamandy", "RandyBobandyBrokeMyGamandy", "1.0.1")]
+    [BepInIncompatibility("com.Wolfo.WolfFixes")]
     public class RandyBobandyBrokeMyGamandy : BaseUnityPlugin
     {
         public void Awake()

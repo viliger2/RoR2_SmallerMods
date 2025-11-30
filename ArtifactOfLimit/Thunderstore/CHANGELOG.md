@@ -1,4 +1,12 @@
 <details>
+<summary>1.1.0 </summary>
+
+* Fixed boss and lunar items basically being removed from drop tables when artifact is enabled.
+* Fixed depending void items (as in void items that should be added if its original item is added) not respecting rulebook locks.
+* Made ItemBlacklist incompatible.
+  * _Basically, enabling ItemBlacklist and this artifact makes some drop tables broken, since ItemBlacklist does some stuff to drop tables to support its scrapper blacklist, even if it is disabled, the most egregious one is cubes not dropping after Solus Wing that you need to get inside the vault. I decided to just make this mod imcompabible with ItemBlacklist and made [alternative](https://thunderstore.io/package/viliger/LobbyRulebookDefSaver/) to it instead._
+</details>
+<details>
 <summary>1.0.3 </summary>
 
 * Fixed game hanging if you go to the next stage with Artifact disabled and ProperSave enabled.
