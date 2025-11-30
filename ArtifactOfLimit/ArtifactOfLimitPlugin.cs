@@ -4,21 +4,30 @@ using RoR2.ContentManagement;
 using System;
 using System.Collections;
 using UnityEngine;
+using static RoR2.ExplicitPickupDropTable;
 
 [assembly: HG.Reflection.SearchableAttribute.OptInAttribute]
 namespace ArtifactOfLimit
 {
     [BepInPlugin(GUID, ModName, Version)]
-    [BepInDependency("com.KingEnderBrine.ProperSave", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency(ProperSaveCompat.MOD_GUID, BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("dolso.ItemBlacklist", BepInDependency.DependencyFlags.SoftDependency)]
     public class ArtifactOfLimitPlugin : BaseUnityPlugin
     {
         public const string Author = "viliger";
         public const string ModName = "ArtifactOfLimit";
-        public const string Version = "1.0.3";
+        public const string Version = "1.1.0";
         public const string GUID = "com." + Author + "." + ModName;
+
+        public static bool isLoaded = false;
 
         private void Awake()
         {
+            if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("dolso.ItemBlacklist"))
+            {
+                Logger.LogWarning("Mod is incompatible with ItemBlacklist and will not load to prevent game breaking bugs. I suggest you use alternatives such as LobbyRulebookDefSaver or LobbyVotesSave instead.");
+                return;
+            }
             ArtifactOfLimit.Config.PopulateConfig(this.Config);
             ContentManager.collectContentPackProviders += ContentManager_collectContentPackProviders;
             RoR2.Language.collectLanguageRootFolders += Language_collectLanguageRootFolders;
@@ -29,6 +38,8 @@ namespace ArtifactOfLimit
             }
 
             On.RoR2.Run.Start += Run_Start;
+
+            isLoaded = true;
         }
 
         private void Run_Start(On.RoR2.Run.orig_Start orig, Run self)

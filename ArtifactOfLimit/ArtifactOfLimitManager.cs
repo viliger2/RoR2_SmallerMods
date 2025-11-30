@@ -18,6 +18,11 @@ namespace ArtifactOfLimit
         [SystemInitializer(new Type[] { typeof(ArtifactCatalog) })]
         private static void Init()
         {
+            if (!ArtifactOfLimitPlugin.isLoaded)
+            {
+                return;
+            }
+
             RunArtifactManager.onArtifactEnabledGlobal += RunArtifactManager_onArtifactEnabledGlobal;
             RunArtifactManager.onArtifactDisabledGlobal += RunArtifactManager_onArtifactDisabledGlobal;
         }
@@ -99,7 +104,8 @@ namespace ArtifactOfLimit
                 Config.Tier1ItemCount.Value,
                 Config.Tier1DamageTag.Value,
                 Config.Tier1HealingTag.Value,
-                Config.Tier1UtilityTag.Value
+                Config.Tier1UtilityTag.Value,
+                run.availableVoidTier1DropList
             );
             GenerateItemPool(
                 ref newAvailableItems,
@@ -108,7 +114,8 @@ namespace ArtifactOfLimit
                 Config.Tier2ItemCount.Value,
                 Config.Tier2DamageTag.Value,
                 Config.Tier2HealingTag.Value,
-                Config.Tier2UtilityTag.Value
+                Config.Tier2UtilityTag.Value,
+                run.availableVoidTier2DropList
             );
             GenerateItemPool(
                 ref newAvailableItems,
@@ -117,7 +124,8 @@ namespace ArtifactOfLimit
                 Config.Tier3ItemCount.Value,
                 Config.Tier3DamageTag.Value,
                 Config.Tier3HealingTag.Value,
-                Config.Tier3UtilityTag.Value
+                Config.Tier3UtilityTag.Value,
+                run.availableVoidTier3DropList
             );
 
             if (Config.AffectVoidItems.Value)
@@ -151,7 +159,11 @@ namespace ArtifactOfLimit
                 AddAllItemsToItemMask(ref newAvailableItems, run.availableVoidTier3DropList);
             }
 
+            AddAllItemsToItemMask(ref newAvailableItems, run.availableLunarItemDropList);
+            AddAllItemsToItemMask(ref newAvailableItems, run.availableBossDropList);
             AddAllItemsToItemMask(ref newAvailableItems, run.availableVoidBossDropList);
+            AddAllItemsToItemMask(ref newAvailableItems, run.availableFoodTierDropList);
+            AddAllItemsToItemMask(ref newAvailableItems, run.availablePowerShapeItemsDropList);
 
             void AddAllItemsToItemMask(ref ItemMask itemMask, List<PickupIndex> itemList)
             {
@@ -204,8 +216,10 @@ namespace ArtifactOfLimit
             }
         }
 
-        private static void GenerateItemPool(ref ItemMask newAvailableItems, Xoroshiro128Plus runRng, List<PickupIndex> dropList, int totalItemCount, float damagePercent, float healingPercent, float utilityPercent)
+        private static void GenerateItemPool(ref ItemMask newAvailableItems, Xoroshiro128Plus runRng, List<PickupIndex> dropList, int totalItemCount, float damagePercent, float healingPercent, float utilityPercent, List<PickupIndex> voidItemPool)
         {
+            List<ItemIndex> voidItemPoolItem = voidItemPool.ConvertAll(item => PickupCatalog.GetPickupDef(item).itemIndex);
+
             var totalPercent = damagePercent + healingPercent + utilityPercent;
 
             int damageItemCount = (int)(totalItemCount * (damagePercent / totalPercent));
@@ -238,9 +252,9 @@ namespace ArtifactOfLimit
             List<ItemIndex> utilityItems = dropList.Where(item => SelectItemWithTag(item, ItemTag.Utility)).ToList().ConvertAll(item => PickupCatalog.GetPickupDef(item).itemIndex);
             List<ItemIndex> healingItems = dropList.Where(item => SelectItemWithTag(item, ItemTag.Healing)).ToList().ConvertAll(item => PickupCatalog.GetPickupDef(item).itemIndex);
 
-            var addedDamageItemsCount = AddItemsToItemMask(ref newAvailableItems, ref damageItems, damageItemCount);
-            var addedUtilityItemsCount = AddItemsToItemMask(ref newAvailableItems, ref utilityItems, utilityItemCount);
-            var addedHealingItemsCount = AddItemsToItemMask(ref newAvailableItems, ref healingItems, healingItemCount);
+            var addedDamageItemsCount = AddItemsToItemMask(ref newAvailableItems, ref damageItems, damageItemCount, voidItemPoolItem);
+            var addedUtilityItemsCount = AddItemsToItemMask(ref newAvailableItems, ref utilityItems, utilityItemCount, voidItemPoolItem);
+            var addedHealingItemsCount = AddItemsToItemMask(ref newAvailableItems, ref healingItems, healingItemCount, voidItemPoolItem);
 
             var remainingItems = new List<ItemIndex>(damageItems.Count + utilityItems.Count + healingItems.Count);
             remainingItems.AddRange(damageItems);
@@ -256,13 +270,14 @@ namespace ArtifactOfLimit
                     var pickUpIndex = remainingItems[runRng.RangeInt(0, remainingItems.Count)];
                     if (!newAvailableItems.Contains(pickUpIndex))
                     {
+                        newAvailableItems.Add(pickUpIndex);
                         stillNeedToAdd--;
                     }
                     rerollCount++;
                 }
             }
 
-            int AddItemsToItemMask(ref ItemMask itemMask, ref List<ItemIndex> items, int itemCount)
+            int AddItemsToItemMask(ref ItemMask itemMask, ref List<ItemIndex> items, int itemCount, List<ItemIndex> voidItemPool)
             {
                 var addedItemCount = 0;
                 if (items.Count <= itemCount)
@@ -302,11 +317,18 @@ namespace ArtifactOfLimit
                         {
                             for (int k = 0; k < ContagiousItemManager.transformationInfos.Length; k++)
                             {
-                                if (ContagiousItemManager.transformationInfos[k].originalItem == item)
+                                if (ContagiousItemManager.transformationInfos[k].originalItem != item)
                                 {
-                                    itemMask.Add(ContagiousItemManager.transformationInfos[k].transformedItem);
-                                    break;
+                                    continue;
                                 }
+
+                                if (!voidItemPool.Contains(ContagiousItemManager.transformationInfos[k].transformedItem))
+                                {
+                                    continue;
+                                }
+
+                                itemMask.Add(ContagiousItemManager.transformationInfos[k].transformedItem);
+                                break;
                             }
                         }
                     }

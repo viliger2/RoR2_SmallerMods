@@ -6,6 +6,8 @@ namespace ArtifactOfLimit
 {
     internal static class ProperSaveCompat
     {
+        public const string MOD_GUID = "com.KingEnderBrine.ProperSave";
+
         private static bool? _enabled;
 
         private const string SAVE_DATA_NAME = "viliger_artifactoflimit_save";
@@ -16,7 +18,7 @@ namespace ArtifactOfLimit
             {
                 if (_enabled == null)
                 {
-                    _enabled = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.KingEnderBrine.ProperSave");
+                    _enabled = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey(MOD_GUID);
                 }
                 return (bool)_enabled;
             }
@@ -50,7 +52,5 @@ namespace ArtifactOfLimit
                 saveData.Add(SAVE_DATA_NAME, new ProperSave.Data.ItemMaskData(ArtifactOfLimitManager.newAvailableItems));
             }
         }
-
-
     }
 }
