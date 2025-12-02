@@ -97,6 +97,28 @@ namespace ArtifactOfLimit
         {
             newAvailableItems = ItemMask.Rent();
 
+            var whitelistOfItems = Config.Whitelist.Value.Split(",", StringSplitOptions.RemoveEmptyEntries);
+            foreach ( var item in whitelistOfItems)
+            {
+                var itemIndex = ItemCatalog.FindItemIndex(item);
+                if(itemIndex == ItemIndex.None)
+                {
+                    continue;
+                }
+
+                var pickupIndex = PickupCatalog.FindPickupIndex(itemIndex);
+                if(pickupIndex == PickupIndex.none)
+                {
+                    continue;
+                }
+                if(run.availableTier1DropList.Contains(pickupIndex)
+                    || run.availableTier2DropList.Contains(pickupIndex)
+                    || run.availableTier3DropList.Contains(pickupIndex))
+                {
+                    newAvailableItems.Add(itemIndex);
+                }
+            }
+
             GenerateItemPool(
                 ref newAvailableItems,
                 run.runRNG,
@@ -164,6 +186,18 @@ namespace ArtifactOfLimit
             AddAllItemsToItemMask(ref newAvailableItems, run.availableVoidBossDropList);
             AddAllItemsToItemMask(ref newAvailableItems, run.availableFoodTierDropList);
             AddAllItemsToItemMask(ref newAvailableItems, run.availablePowerShapeItemsDropList);
+
+            if (Config.PrintItemList.Value) 
+            {
+                Log.Info("Artifact Of Limit Item List: ");
+                for(int i = 0; i < newAvailableItems.array.Length; i++)
+                {
+                    if (newAvailableItems.array[i])
+                    {
+                        Log.Info(ItemCatalog.GetItemDef((ItemIndex)i));
+                    }
+                }
+            }
 
             void AddAllItemsToItemMask(ref ItemMask itemMask, List<PickupIndex> itemList)
             {

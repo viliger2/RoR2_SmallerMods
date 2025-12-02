@@ -23,6 +23,7 @@ namespace ArtifactOfLimit
 
         private void Awake()
         {
+            Log.Init(Logger);
             if (BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("dolso.ItemBlacklist"))
             {
                 Logger.LogWarning("Mod is incompatible with ItemBlacklist and will not load to prevent game breaking bugs. I suggest you use alternatives such as LobbyRulebookDefSaver or LobbyVotesSave instead.");

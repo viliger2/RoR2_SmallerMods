@@ -4,6 +4,9 @@ namespace ArtifactOfLimit
 {
     public static class Config
     {
+        public static ConfigEntry<string> Whitelist;
+        public static ConfigEntry<bool> PrintItemList;
+
         public static ConfigEntry<int> Tier1ItemCount;
         public static ConfigEntry<float> Tier1DamageTag;
         public static ConfigEntry<float> Tier1HealingTag;
@@ -24,6 +27,9 @@ namespace ArtifactOfLimit
 
         public static void PopulateConfig(ConfigFile config)
         {
+            Whitelist = config.Bind("General", "Whitelist", "", "Whitelist of items that are always included, separated by coma(,). Fill only Tier1, Tier2 and Tier3 items. These items ARE NOT included in tier counts, so adjust number of items in each tier accordingly if you want the number to be the same with these items included. This setting will still respect rulebook.");
+            PrintItemList = config.Bind("General", "Print Item List", false, "Prints item list at the start of the run into the log.");
+
             Tier1ItemCount = config.Bind("Tier 1", "Total Number of Items", 24, "Total number of Tier 1 items to be used each run.");
             Tier1DamageTag = config.Bind("Tier 1", "Share of Damage Items", 10f, "Share of Tier 1 items with Damage tag. You can use any value you want, since all Share will be added together and then relative will be calculated.");
             Tier1HealingTag = config.Bind("Tier 1", "Share of Healing Items", 6f, "Share of Tier 1 items with Healing tag. You can use any value you want, since all Share will be added together and then relative will be calculated.");
