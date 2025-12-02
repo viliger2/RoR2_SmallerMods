@@ -1,4 +1,11 @@
 <details>
+<summary>1.1.1 </summary>
+
+* Added whitelist.
+  * _Whitelist allows users to specify which items are always included in selection. These items respect rulebook settings, however they are not included in item counts, so it is best to adjust number of available items after filling out whitelist if you want for number of items to remain the same._
+* Added config option to print selected items to log on the start of the run. Disabled by default.  
+</details>
+<details>
 <summary>1.1.0 </summary>
 
 * Fixed boss and lunar items basically being removed from drop tables when artifact is enabled.
