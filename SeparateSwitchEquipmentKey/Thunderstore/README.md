@@ -1,0 +1,2 @@
+# SeparateSwitchEquipmentKey
+Adds a separate key (by default - X) for switching active equipment, key can be rebind in settings menu. Controller gets Left Stick by default. On default UI key will replace combination of Use + Fire Equipment, on UI mods nothing will happen most likely but the button should still work. Original combination is not disabled and still can be used.
