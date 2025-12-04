@@ -1,7 +1,7 @@
 {
     "name": "SeparateSwitchEquipmentKey",
     "version_number": "1.0.0",
-    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/RevertStunBuff",
+    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/SeparateSwitchEquipmentKey",
     "description": "Add a separate keybind to switch equipment.",
     "dependencies": [
 	    "bbepis-BepInExPack-5.4.2102",
