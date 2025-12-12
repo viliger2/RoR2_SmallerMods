@@ -1,0 +1,5 @@
+{
+	"strings": {
+		"PUBLIC_SHAMING_INTERACTABLE_ACTIVATED": "<style=cWorldEvent><color=white>{0}</color> активировал(а) <style=cHumanObjective>{1}</style>.</style>"
+	}
+}
