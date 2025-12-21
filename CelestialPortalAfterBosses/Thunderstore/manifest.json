@@ -1,0 +1,9 @@
+{
+    "name": "CelesialPortalAfterBosses",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/ArtifactofTheKing",
+    "description": "Spawns Celestial Portal after non-run ending bosses. You know why.",
+  "dependencies": [
+    "bbepis-BepInExPack-5.4.2121",
+  ]
+}

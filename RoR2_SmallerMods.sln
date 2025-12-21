@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LobbyRulebookDefSaver", "Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeparateSwitchEquipmentKey", "SeparateSwitchEquipmentKey\SeparateSwitchEquipmentKey.csproj", "{22E3ABAD-3BFC-42C6-A41F-9D4ABD2AEA20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepurposedCraterBoss", "RepurposedCraterBoss\RepurposedCraterBoss.csproj", "{7ADF28E4-2FDE-4B8B-B550-7A265C86973F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepurposedCraterBoss", "RepurposedCraterBoss\RepurposedCraterBoss.csproj", "{7ADF28E4-2FDE-4B8B-B550-7A265C86973F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CelestialPortalAfterBosses", "CelestialPortalAfterBosses\CelestialPortalAfterBosses.csproj", "{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{7ADF28E4-2FDE-4B8B-B550-7A265C86973F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ADF28E4-2FDE-4B8B-B550-7A265C86973F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ADF28E4-2FDE-4B8B-B550-7A265C86973F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
