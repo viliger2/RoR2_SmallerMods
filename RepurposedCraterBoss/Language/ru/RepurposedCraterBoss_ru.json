@@ -1,5 +1,7 @@
 {
 	"strings": {
-		"PUBLIC_SHAMING_INTERACTABLE_ACTIVATED": "<style=cWorldEvent><color=white>{0}</color> активировал(а) <style=cHumanObjective>{1}</style>.</style>"
+		"VILIGER_ALLOY_CAMERA_CLOSE": "<style=cWorldEvent>Ваши действия не были оставлены незамеченными...</style>",
+		"VILIGER_ALLOY_CAMERA_BEGIN": "<style=cWorldEvent>Наблюдатель прибыл.</style>",
+		"VILIGER_ALLOY_CAMERA": "Линза Солуса"
 	}
 }
