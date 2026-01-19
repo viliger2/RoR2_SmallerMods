@@ -1,12 +1,8 @@
 ﻿using EntityStates;
 using RoR2;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
-using static RepurposedCraterBoss.ModdedEntityStates.BossEncounter.Listening;
 
 namespace RepurposedCraterBoss.ModdedEntityStates.BossEncounter
 {
@@ -103,7 +99,7 @@ namespace RepurposedCraterBoss.ModdedEntityStates.BossEncounter
 
                 Util.ShuffleArray(cameraPositions);
 
-                for(int i = 0; i < Mathf.Min(camerasCountToSpawn, cameraPositions.Length); i++)
+                for (int i = 0; i < Mathf.Min(camerasCountToSpawn, cameraPositions.Length); i++)
                 {
                     var positionAndRotation = cameraPositions[i];
                     var newCamera = UnityEngine.Object.Instantiate(cameraPrefab, positionAndRotation.position, Quaternion.Euler(positionAndRotation.rotation));

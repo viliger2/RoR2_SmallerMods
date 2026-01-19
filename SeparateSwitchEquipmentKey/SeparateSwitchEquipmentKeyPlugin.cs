@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using Rebindables;
 using RoR2;
-using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 

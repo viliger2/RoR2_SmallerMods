@@ -1,8 +1,5 @@
 ﻿using Rebindables;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace SeparateSwitchEquipmentKey
@@ -26,12 +23,12 @@ namespace SeparateSwitchEquipmentKey
                 return;
             }
 
-            if(!(equipmentSlot.hasEffectiveAuthority && equipmentSlot.characterBody && equipmentSlot.characterBody.isEquipmentActivationAllowed))
+            if (!(equipmentSlot.hasEffectiveAuthority && equipmentSlot.characterBody && equipmentSlot.characterBody.isEquipmentActivationAllowed))
             {
                 return;
             }
 
-            if(equipmentSlot.inventory.GetItemCountEffective(DLC3Content.Items.ExtraEquipment) > 0 && equipmentSlot.inputBank.GetButtonState(SeparateSwitchEquipmentKeyPlugin.SwitchEquipment).justPressed)
+            if (equipmentSlot.inventory.GetItemCountEffective(DLC3Content.Items.ExtraEquipment) > 0 && equipmentSlot.inputBank.GetButtonState(SeparateSwitchEquipmentKeyPlugin.SwitchEquipment).justPressed)
             {
                 equipmentSlot.inventory.DispatchSwitchToNextEquipmentInSet();
             }

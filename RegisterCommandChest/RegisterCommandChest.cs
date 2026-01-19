@@ -1,9 +1,8 @@
 ﻿using BepInEx;
 using RoR2.ContentManagement;
-using System;
 using System.Collections;
-using UnityEngine.AddressableAssets;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace RegisterCommandChest
 {

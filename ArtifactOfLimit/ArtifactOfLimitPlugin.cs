@@ -4,7 +4,6 @@ using RoR2.ContentManagement;
 using System;
 using System.Collections;
 using UnityEngine;
-using static RoR2.ExplicitPickupDropTable;
 
 [assembly: HG.Reflection.SearchableAttribute.OptInAttribute]
 namespace ArtifactOfLimit

@@ -1,8 +1,7 @@
 ﻿using BepInEx;
-using RoR2.Skills;
-using RoR2;
-using System;
 using BepInEx.Configuration;
+using RoR2;
+using RoR2.Skills;
 
 namespace WhatKilledMe
 {
@@ -29,12 +28,12 @@ namespace WhatKilledMe
 
         private void GlobalEventManager_onCharacterDeathGlobal(RoR2.DamageReport damageReport)
         {
-            if(damageReport.victimTeamIndex != RoR2.TeamIndex.Player)
+            if (damageReport.victimTeamIndex != RoR2.TeamIndex.Player)
             {
                 return;
             }
 
-            if(!damageReport.victimBody || !damageReport.victimBody.isPlayerControlled)
+            if (!damageReport.victimBody || !damageReport.victimBody.isPlayerControlled)
             {
                 return;
             }
@@ -45,24 +44,30 @@ namespace WhatKilledMe
             {
                 killerString = Util.GetBestBodyName(damageReport.attackerBody.gameObject);
                 var skillName = AttemptToGetSkill(damageReport);
-                if (!skillName.IsNullOrWhiteSpace()) {
+                if (!skillName.IsNullOrWhiteSpace())
+                {
                     skillString = string.Format(Language.GetString("WHAT_KILLED_ME_DAMAGE_SOURCE"), skillName);
                 }
             }
 
             string deathToken = "WHAT_KILLED_ME_NORMAL_DEATH";
 
-            if (damageReport.isFriendlyFire) {
+            if (damageReport.isFriendlyFire)
+            {
                 deathToken = "WHAT_KILLED_ME_FRIENDLY_FIRE";
-            } else if(IsDamageVoidFog(damageReport.damageInfo)) {
+            }
+            else if (IsDamageVoidFog(damageReport.damageInfo))
+            {
                 deathToken = "WHAT_KILLED_ME_VOID_FOG";
                 killerString = "";
                 skillString = "";
             }
-            else if (IsDamageVoidDeath(damageReport.damageInfo)) {
+            else if (IsDamageVoidDeath(damageReport.damageInfo))
+            {
                 deathToken = "WHAT_KILLED_ME_JAILED";
                 skillString = "";
-            } else if(damageReport.isFallDamage)
+            }
+            else if (damageReport.isFallDamage)
             {
                 deathToken = "WHAT_KILLED_ME_WEAK_ASS_KNEES";
                 killerString = "";
@@ -76,7 +81,7 @@ namespace WhatKilledMe
                 baseToken = deathToken,
                 paramTokens = new string[] { victim, killerString, damageReport.damageDealt.ToString("F0"), damageReport.combinedHealthBeforeDamage.ToString("F0"), skillString }
             });
-         }
+        }
 
         private bool IsDamageVoidFog(DamageInfo damageInfo)
         {
@@ -123,7 +128,8 @@ namespace WhatKilledMe
                 if (skill.currentSkillOverride >= 0)
                 {
                     skillDef = skill.skillOverrides[skill.currentSkillOverride].skillDef;
-                } else
+                }
+                else
                 {
                     skillDef = skill.skillDef;
                 }
@@ -143,7 +149,8 @@ namespace WhatKilledMe
                         {
                             return name;
                         }
-                    } else if (UseSkillDefNames.Value)
+                    }
+                    else if (UseSkillDefNames.Value)
                     {
                         return skillDef.skillName;
                     }

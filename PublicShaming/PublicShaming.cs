@@ -34,10 +34,11 @@ namespace PublicShaming
 
         private void GlobalEventManager_OnInteractionsGlobal(Interactor interactor, IInteractable interactable, GameObject interactableObject)
         {
-            if(interactable is TeleporterInteraction)
+            if (interactable is TeleporterInteraction)
             {
                 SendChatMessage(interactor, interactableObject);
-            } else if(interactable is GenericInteraction)
+            }
+            else if (interactable is GenericInteraction)
             {
                 if (!interactableObject.GetComponent<SceneExitController>())
                 {

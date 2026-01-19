@@ -1,10 +1,10 @@
 ﻿using BepInEx;
+using JetBrains.Annotations;
 using RoR2;
 using RoR2.Projectile;
 using RoR2.Skills;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using JetBrains.Annotations;
 
 namespace ArtifactofTheKing
 {
@@ -72,26 +72,26 @@ namespace ArtifactofTheKing
             }
 
             var eye = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherArmature/ROOT/base/stomach/chest/neck/head/eyeball/BrotherEye");
-            if (eye) 
+            if (eye)
             {
                 eye.GetComponent<MeshFilter>().mesh = mesh.transform.Find("BrotherArmature/ROOT/base/stomach/chest/neck/head/eyeball/BrotherEye").GetComponent<MeshFilter>().mesh;
                 eye.GetComponent<MeshRenderer>().material = Addressables.LoadAssetAsync<Material>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base_Brother.matBrotherEye_mat).WaitForCompletion();
             }
 
             var bodyMesh = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherBodyMesh");
-            if (bodyMesh) 
+            if (bodyMesh)
             {
                 bodyMesh.GetComponent<SkinnedMeshRenderer>().sharedMesh = mesh.transform.Find("BrotherBodyMesh").GetComponent<SkinnedMeshRenderer>().sharedMesh;
             }
 
             var hammerConcrete = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherHammerConcrete");
-            if (hammerConcrete) 
+            if (hammerConcrete)
             {
                 hammerConcrete.GetComponent<SkinnedMeshRenderer>().sharedMesh = mesh.transform.Find("BrotherHammerConcrete").GetComponent<SkinnedMeshRenderer>().sharedMesh;
             }
 
             var hammerStib = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherHammerConcrete/BrotherHammerStib");
-            if (hammerStib) 
+            if (hammerStib)
             {
                 var hammerStibSMR = hammerStib.GetComponent<SkinnedMeshRenderer>();
                 hammerStibSMR.sharedMesh = mesh.transform.Find("BrotherHammerConcrete/BrotherHammerStib").GetComponent<SkinnedMeshRenderer>().sharedMesh;
@@ -99,7 +99,7 @@ namespace ArtifactofTheKing
             }
 
             var stibPieces = BrotherGlassBody.transform.Find("ModelBase/mdlBrother/BrotherStibPieces");
-            if (stibPieces) 
+            if (stibPieces)
             {
                 var hammerPiecesSMR = stibPieces.GetComponent<SkinnedMeshRenderer>();
                 hammerPiecesSMR.sharedMesh = mesh.transform.Find("BrotherStibPieces").GetComponent<SkinnedMeshRenderer>().sharedMesh;
@@ -166,8 +166,8 @@ namespace ArtifactofTheKing
             // so we write our own shitcode instead
             //if (KingConfiguration.EnableFixes.Value)
             //{
-                On.EntityStates.BrotherMonster.ExitSkyLeap.OnEnter -= ExitSkyLeap_OnEnter;
-                On.EntityStates.BrotherMonster.ExitSkyLeap.FixedUpdate -= ExitSkyLeap_FixedUpdate;
+            On.EntityStates.BrotherMonster.ExitSkyLeap.OnEnter -= ExitSkyLeap_OnEnter;
+            On.EntityStates.BrotherMonster.ExitSkyLeap.FixedUpdate -= ExitSkyLeap_FixedUpdate;
             //}
         }
 
@@ -205,7 +205,7 @@ namespace ArtifactofTheKing
         {
             if (self.isAuthority)
             {
-                if(!(self is EntityStates.BrotherMonster.Weapon.FireLunarShardsHurt) && KingConfiguration.AdditionalShards.Value)
+                if (!(self is EntityStates.BrotherMonster.Weapon.FireLunarShardsHurt) && KingConfiguration.AdditionalShards.Value)
                 {
                     FireAdditionalShards();
                 }

@@ -111,20 +111,20 @@ namespace ArtifactOfLimit
             newAvailableItems = ItemMask.Rent();
 
             var whitelistOfItems = Config.Whitelist.Value.Split(",", StringSplitOptions.RemoveEmptyEntries);
-            foreach ( var item in whitelistOfItems)
+            foreach (var item in whitelistOfItems)
             {
                 var itemIndex = ItemCatalog.FindItemIndex(item);
-                if(itemIndex == ItemIndex.None)
+                if (itemIndex == ItemIndex.None)
                 {
                     continue;
                 }
 
                 var pickupIndex = PickupCatalog.FindPickupIndex(itemIndex);
-                if(pickupIndex == PickupIndex.none)
+                if (pickupIndex == PickupIndex.none)
                 {
                     continue;
                 }
-                if(run.availableTier1DropList.Contains(pickupIndex)
+                if (run.availableTier1DropList.Contains(pickupIndex)
                     || run.availableTier2DropList.Contains(pickupIndex)
                     || run.availableTier3DropList.Contains(pickupIndex))
                 {

@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 using RoR2;
-using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
@@ -37,7 +36,7 @@ namespace CelestialPortalAfterBosses
         private void SolusWebMissionController_SpawnExitPortal(On.RoR2.SolusWebMissionController.orig_SpawnExitPortal orig, RoR2.SolusWebMissionController self)
         {
             orig(self);
-            OpenMSPortal(new Vector3(-40.161f, - 226.2f, 20.511f), new Vector3(0f, 270f, 0f));
+            OpenMSPortal(new Vector3(-40.161f, -226.2f, 20.511f), new Vector3(0f, 270f, 0f));
         }
 
         private void RebirthOrPortalChoice_OnEnter(On.EntityStates.ShrineRebirth.RebirthOrPortalChoice.orig_OnEnter orig, EntityStates.ShrineRebirth.RebirthOrPortalChoice self)
@@ -53,24 +52,25 @@ namespace CelestialPortalAfterBosses
                 return;
             }
 
-            if(!Run.instance || Run.instance.loopClearCount == 0)
+            if (!Run.instance || Run.instance.loopClearCount == 0)
             {
                 return;
             }
 
             var handle = Addressables.LoadAssetAsync<InteractableSpawnCard>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_Base_PortalMS.iscMSPortal_asset);
-            if (handle.IsValid()) {
+            if (handle.IsValid())
+            {
                 handle.Completed += (result) =>
                 {
                     var card = result.Result;
                     if (DirectorCore.instance)
                     {
                         var obj = DirectorCore.instance.TrySpawnObject(new DirectorSpawnRequest(card, new DirectorPlacementRule()
-                            {
-                                placementMode = DirectorPlacementRule.PlacementMode.DirectWithoutRandomRotation,
-                                position = position,
-                                rotation = Quaternion.Euler(rotation)
-                            },
+                        {
+                            placementMode = DirectorPlacementRule.PlacementMode.DirectWithoutRandomRotation,
+                            position = position,
+                            rotation = Quaternion.Euler(rotation)
+                        },
                             Run.instance.stageRng)
                         );
                         if (obj)

@@ -26,7 +26,7 @@ namespace RoR2_PrintersIcon
         {
             if (duplicator)
             {
-                if(!duplicator.TryGetComponent<PingInfoProvider>(out var pingInfo))
+                if (!duplicator.TryGetComponent<PingInfoProvider>(out var pingInfo))
                 {
                     pingInfo = duplicator.AddComponent<PingInfoProvider>();
                 };

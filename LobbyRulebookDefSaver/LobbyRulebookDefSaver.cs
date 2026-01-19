@@ -1,6 +1,5 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
-using EntityStates;
 using RoR2;
 using RoR2.UI;
 using System;
@@ -81,7 +80,8 @@ namespace LobbyRulebookDefSaver
 
                 buttonComponent.onClick = new UnityEngine.UI.Button.ButtonClickedEvent();
                 AddPersistentListener(buttonComponent.onClick, SaveToConfigInputEvent);
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 Logger.LogWarning("Couldn't add SaveToConfig button.");
                 Logger.LogError(e);
@@ -94,12 +94,12 @@ namespace LobbyRulebookDefSaver
             orig(localUser);
 
             var strings = SavedRulebookRules.Value.Split(';', StringSplitOptions.RemoveEmptyEntries);
-            if(RoR2.PreGameRuleVoteController.LocalUserBallotPersistenceManager.votesCache[localUser] == null)
+            if (RoR2.PreGameRuleVoteController.LocalUserBallotPersistenceManager.votesCache[localUser] == null)
             {
                 RoR2.PreGameRuleVoteController.LocalUserBallotPersistenceManager.votesCache[localUser] = PreGameRuleVoteController.CreateBallot();
             }
 
-            foreach(var ruleChoiceDefName in strings)
+            foreach (var ruleChoiceDefName in strings)
             {
                 var ruleChoiceDef = RuleCatalog.FindChoiceDef(ruleChoiceDefName);
                 if (ruleChoiceDef != null)

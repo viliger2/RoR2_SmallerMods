@@ -23,11 +23,12 @@ namespace RevertStunBuff
         {
             ILLabel test1 = null;
             ILCursor c = new ILCursor(il);
-            if(c.TryGotoNext(MoveType.Before,
+            if (c.TryGotoNext(MoveType.Before,
                 x => x.MatchBrfalse(out test1)))
             {
                 // do nothing lmoa
-            } else
+            }
+            else
             {
                 Logger.LogWarning("Failed to IL hook RoR2::SetStateOnHurt::SetStunInternal: couldn't get jump index.");
             }
@@ -44,7 +45,7 @@ namespace RevertStunBuff
                 c.EmitDelegate<Action<RoR2.SetStateOnHurt, float>>((self, stunDuration) =>
                 {
                     StunState stunState = self.targetStateMachine.state as StunState;
-                    if(stunState.timeRemaining < stunDuration)
+                    if (stunState.timeRemaining < stunDuration)
                     {
                         stunState.ExtendStun(stunDuration - stunState.timeRemaining);
                     }

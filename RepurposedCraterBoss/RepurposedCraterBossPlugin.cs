@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 using RoR2.ContentManagement;
-using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -12,7 +11,7 @@ namespace RepurposedCraterBoss
     {
         public const string Author = "viliger";
         public const string Name = nameof(RepurposedCraterBossPlugin);
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public const string GUID = Author + "." + Name;
 
         public const string LanguageFolder = "Language";
@@ -47,7 +46,7 @@ namespace RepurposedCraterBoss
 
         private void Stage_onStageStartGlobal(RoR2.Stage stage)
         {
-            if(stage.sceneDef.cachedName == "repurposedcrater")
+            if (stage.sceneDef.cachedName == "repurposedcrater")
             {
                 // 1. deleting chests while keeping golden trees active
                 var goldChestsGroup = GameObject.Find("HOLDER: Toggle Groups/GROUP_ GoldChest");
@@ -57,7 +56,7 @@ namespace RepurposedCraterBoss
                     return;
                 }
 
-                for(int i = 0; i < goldChestsGroup.transform.childCount; i++)
+                for (int i = 0; i < goldChestsGroup.transform.childCount; i++)
                 {
                     var chestHolder = goldChestsGroup.transform.GetChild(i);
                     chestHolder.gameObject.SetActive(true); // enabling golden things for visuals
