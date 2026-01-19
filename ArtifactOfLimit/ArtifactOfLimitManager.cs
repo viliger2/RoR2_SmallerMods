@@ -77,7 +77,8 @@ namespace ArtifactOfLimit
             {
                 if (ProperSaveCompat.IsLoading())
                 {
-                    ProperSaveCompat.LoadItemMask(out newAvailableItems);
+                    newAvailableItems = ItemMask.Rent();
+                    ProperSaveCompat.LoadItemMask(newAvailableItems);
                 }
                 else
                 {
@@ -87,6 +88,18 @@ namespace ArtifactOfLimit
             else
             {
                 FillArtifactItemMask(ref newAvailableItems, run);
+            }
+
+            if (Config.PrintItemList.Value)
+            {
+                Log.Info("Artifact Of Limit Item List: ");
+                for (int i = 0; i < newAvailableItems.array.Length; i++)
+                {
+                    if (newAvailableItems.array[i])
+                    {
+                        Log.Info(ItemCatalog.GetItemDef((ItemIndex)i));
+                    }
+                }
             }
 
             run.availableItems = newAvailableItems;
@@ -186,18 +199,6 @@ namespace ArtifactOfLimit
             AddAllItemsToItemMask(ref newAvailableItems, run.availableVoidBossDropList);
             AddAllItemsToItemMask(ref newAvailableItems, run.availableFoodTierDropList);
             AddAllItemsToItemMask(ref newAvailableItems, run.availablePowerShapeItemsDropList);
-
-            if (Config.PrintItemList.Value) 
-            {
-                Log.Info("Artifact Of Limit Item List: ");
-                for(int i = 0; i < newAvailableItems.array.Length; i++)
-                {
-                    if (newAvailableItems.array[i])
-                    {
-                        Log.Info(ItemCatalog.GetItemDef((ItemIndex)i));
-                    }
-                }
-            }
 
             void AddAllItemsToItemMask(ref ItemMask itemMask, List<PickupIndex> itemList)
             {

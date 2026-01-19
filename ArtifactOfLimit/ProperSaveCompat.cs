@@ -39,17 +39,17 @@ namespace ArtifactOfLimit
             ProperSave.SaveFile.OnGatherSaveData += SaveFile_OnGatherSaveData;
         }
 
-        public static void LoadItemMask(out ItemMask itemMask)
+        public static void LoadItemMask(ItemMask itemMask)
         {
             var data = ProperSave.Loading.CurrentSave.GetModdedData<ItemMaskData>(SAVE_DATA_NAME);
-            data.LoadDataOut(out itemMask);
+            data.LoadData(itemMask);
         }
 
         private static void SaveFile_OnGatherSaveData(Dictionary<string, object> saveData)
         {
             if (RunArtifactManager.instance.IsArtifactEnabled(ArtifactOfLimitManager.myArtifact))
             {
-                saveData.Add(SAVE_DATA_NAME, new ProperSave.Data.ItemMaskData(ArtifactOfLimitManager.newAvailableItems));
+                saveData.Add(SAVE_DATA_NAME, ProperSave.Data.ItemMaskData.Create(ArtifactOfLimitManager.newAvailableItems));
             }
         }
     }
