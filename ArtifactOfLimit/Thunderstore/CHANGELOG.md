@@ -1,4 +1,9 @@
 <details>
+<summary>1.1.2 </summary>
+
+* Fixed ProperSave compat for 3.0.
+</details>
+<details>
 <summary>1.1.1 </summary>
 
 * Added whitelist.

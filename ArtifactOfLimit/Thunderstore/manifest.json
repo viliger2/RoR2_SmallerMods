@@ -1,6 +1,6 @@
 {
     "name": "ArtifactOfLimit",
-    "version_number": "1.1.1",
+    "version_number": "1.1.2",
     "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/ArtifactOfLimit",
     "description": "Limits available items on run by run basis.",
   "dependencies": [

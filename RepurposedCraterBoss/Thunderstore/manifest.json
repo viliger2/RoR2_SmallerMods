@@ -1,6 +1,6 @@
 {
     "name": "RepurposedCraterBoss",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/RepurposedCraterBoss",
     "description": "Replaces Gold Chest on Repurposed Crater with a boss, like on Siren's Call.",
     "dependencies": [
