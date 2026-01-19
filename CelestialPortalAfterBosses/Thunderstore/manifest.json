@@ -1,6 +1,6 @@
 {
     "name": "CelesialPortalAfterBosses",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/CelestialPortalAfterBosses",
     "description": "Spawns Celestial Portal after non-run ending bosses after first loop. You know why.",
   "dependencies": [
