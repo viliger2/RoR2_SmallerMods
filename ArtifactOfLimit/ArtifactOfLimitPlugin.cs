@@ -90,7 +90,8 @@ namespace ArtifactOfLimit
             yield return LoadAssetBundle(System.IO.Path.Combine(assetBundleFolderPath, "artifactoflimit"), args.progressReceiver, (resultAssetBundle) => assetbundle = resultAssetBundle);
 
             var artifactDef = ScriptableObject.CreateInstance<RoR2.ArtifactDef>();
-            (artifactDef as ScriptableObject).name = "viliger_ArtifactOfLimit";
+            artifactDef.cachedName = "viliger_ArtifactOfLimit";
+            (artifactDef as ScriptableObject).name = artifactDef.cachedName;
             artifactDef.nameToken = "VILIGER_ARTIFACT_OF_LIMIT_NAME";
             artifactDef.descriptionToken = "VILIGER_ARTIFACT_OF_LIMIT_NAME_DESC";
             artifactDef.smallIconSelectedSprite = assetbundle.LoadAsset<Sprite>("Assets/ArtifactOfLimit/limiton.png");

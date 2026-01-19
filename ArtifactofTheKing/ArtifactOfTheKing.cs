@@ -37,7 +37,8 @@ namespace ArtifactofTheKing
             Mithrix = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Brother/BrotherBody.prefab").WaitForCompletion();
 
             King = ScriptableObject.CreateInstance<ArtifactDef>();
-            (King as ScriptableObject).name = "ArtifactOfKing_Blobface";
+            King.cachedName = "ArtifactOfKing_Blobface";
+            (King as ScriptableObject).name = King.cachedName;
             King.nameToken = "ARTIFACT_OF_THE_KING_NAME";
             King.descriptionToken = "ARTIFACT_OF_THE_KING_DESCRIPTION";
             King.smallIconSelectedSprite = bundle.LoadAsset<Sprite>("Assets/ArtifactOfTheKing/headon.png");
