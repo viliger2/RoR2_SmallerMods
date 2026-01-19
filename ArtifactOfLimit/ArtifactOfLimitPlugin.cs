@@ -15,7 +15,7 @@ namespace ArtifactOfLimit
     {
         public const string Author = "viliger";
         public const string ModName = "ArtifactOfLimit";
-        public const string Version = "1.1.1";
+        public const string Version = "1.1.3";
         public const string GUID = "com." + Author + "." + ModName;
 
         public static bool isLoaded = false;

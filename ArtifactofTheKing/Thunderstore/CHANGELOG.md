@@ -51,3 +51,6 @@
 
 `1.2.5`
 - Recompiled for AC.
+
+`1.2.6`
+- Gave artifact cachedName so it would save via LobbyRulebookDefSaver.

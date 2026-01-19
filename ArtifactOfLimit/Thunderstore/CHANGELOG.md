@@ -1,4 +1,9 @@
 <details>
+<summary>1.1.3 </summary>
+
+* Gave artifact cachedName so it would save via LobbyRulebookDefSaver.
+</details>
+<details>
 <summary>1.1.2 </summary>
 
 * Fixed ProperSave compat for 3.0.
