@@ -1,6 +1,6 @@
 {
 	"strings": {
-		"VILIGER_ALLOY_CAMERA_CLOSE": "<style=cWorldEvent>Your meddling haven't been left unnoticed..</style>",
+		"VILIGER_ALLOY_CAMERA_CLOSE": "<style=cWorldEvent>Your meddling hasn't been left unnoticed..</style>",
 		"VILIGER_ALLOY_CAMERA_BEGIN": "<style=cWorldEvent>The observer has arrived.</style>",
 		"VILIGER_ALLOY_CAMERA": "Solus Lens"
 	}
