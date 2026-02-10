@@ -45,6 +45,9 @@
 		<None Update="Language\ru\IDodgedThat_ru.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+		<None Update="Language\zh-CN\ArtifactofTheKing_zh-CN.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 </Project>

@@ -14,7 +14,7 @@ namespace ArtifactofTheKing
     {
         public const string Author = "Original by Blobface, ported to SoTS by viliger";
         public const string ModName = "Artifact of the King";
-        public const string Version = "1.2.6";
+        public const string Version = "1.2.7";
         public const string GUID = "com.Blobface.ArtifactKing";
 
         public static ArtifactDef King;

@@ -54,3 +54,6 @@
 
 `1.2.6`
 - Gave artifact cachedName so it would save via LobbyRulebookDefSaver.
+
+`1.2.7`
+- Added zh-CN translation by [君菌w](https://github.com/JunJun5406)
