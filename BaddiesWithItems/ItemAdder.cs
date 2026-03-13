@@ -361,8 +361,6 @@ namespace BaddiesWithItems
                 }
             }
 
-            list.RemoveAll(item => blacklistedItems.Contains(item.Item1));
-
             foreach(var item in list)
             {
 #if DEBUG
@@ -390,6 +388,11 @@ namespace BaddiesWithItems
 
                         var itemIndex = pickupDef.itemIndex;
                         if (itemIndex == ItemIndex.None)
+                        {
+                            continue;
+                        }
+
+                        if (blacklistedItems.Contains(itemIndex))
                         {
                             continue;
                         }

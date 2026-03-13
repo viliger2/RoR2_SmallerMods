@@ -69,8 +69,8 @@ namespace BaddiesWithItems
                         return;
                     }
 
-                    float dropChance = 0.01f;
-                    if(!ItemTierDropWeightDictionary.TryGetValue(itemDef.deprecatedTier, out dropChance))
+                    float dropChance;
+                    if (!ItemTierDropWeightDictionary.TryGetValue(itemDef.deprecatedTier, out dropChance))
                     {
                         // if couldn't get value from 
                         dropChance = Configuration.TierCustomDropWeight.Value;
