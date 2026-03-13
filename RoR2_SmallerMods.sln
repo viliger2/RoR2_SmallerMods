@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeparateSwitchEquipmentKey"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepurposedCraterBoss", "RepurposedCraterBoss\RepurposedCraterBoss.csproj", "{7ADF28E4-2FDE-4B8B-B550-7A265C86973F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CelestialPortalAfterBosses", "CelestialPortalAfterBosses\CelestialPortalAfterBosses.csproj", "{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CelestialPortalAfterBosses", "CelestialPortalAfterBosses\CelestialPortalAfterBosses.csproj", "{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaddiesWithItems", "BaddiesWithItems\BaddiesWithItems.csproj", "{5AC95A4B-2969-488C-841B-ACAF6580433A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D1DA9C2-57CB-4DD4-B299-8672882F5C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AC95A4B-2969-488C-841B-ACAF6580433A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AC95A4B-2969-488C-841B-ACAF6580433A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AC95A4B-2969-488C-841B-ACAF6580433A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AC95A4B-2969-488C-841B-ACAF6580433A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
