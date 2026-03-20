@@ -32,6 +32,9 @@
 	  <None Update="Language\ru\ArtifactofLimit_ru.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
+	  <None Update="Language\zh-CN\ArtifactofLimit_zh-CN.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 	
 </Project>

@@ -1,4 +1,9 @@
 <details>
+<summary>1.1.5 </summary>
+
+* zh-CN language support by https://github.com/JunJun5406
+</details>
+<details>
 <summary>1.1.4 </summary>
 
 * Fixed an error on run start if config value of "Total Number of Items" for a given tier is more than number of items for a given tier in the game.
