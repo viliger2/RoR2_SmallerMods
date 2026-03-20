@@ -296,6 +296,11 @@ namespace ArtifactOfLimit
             remainingItems.AddRange(utilityItems);
             remainingItems.AddRange(healingItems);
 
+            if(remainingItems.Count == 0)
+            {
+                return;
+            }
+
             if (addedDamageItemsCount + addedUtilityItemsCount + addedHealingItemsCount != totalItemCount)
             {
                 var stillNeedToAdd = totalItemCount - (addedDamageItemsCount + addedUtilityItemsCount + addedHealingItemsCount);

@@ -1,4 +1,9 @@
 <details>
+<summary>1.1.4 </summary>
+
+* Fixed an error on run start if config value of "Total Number of Items" for a given tier is more than number of items for a given tier in the game.
+</details>
+<details>
 <summary>1.1.3 </summary>
 
 * Gave artifact cachedName so it would save via LobbyRulebookDefSaver.
