@@ -12,7 +12,7 @@ namespace BasicChest
     {
         public const string Author = "viliger";
         public const string ModName = "BasicChest";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public const string GUID = "com." + Author + "." + ModName;
 
         public static ConfigEntry<string> DropList;
@@ -51,9 +51,9 @@ namespace BasicChest
             GoldCost = Config.Bind("Basic Chest", "Gold Cost", 40, "Cost of Basic Chest.");
             DirectorCost = Config.Bind("Basic Chest", "Director Cost", 30, "Director cost of Basic Chest.");
 
-            Tier1Weight = Config.Bind("Basic Chest", "Tier 1 Weight", 75f, "Weight of Tier 1 items. Weights are relative to each other.");
-            Tier2Weight = Config.Bind("Basic Chest", "Tier 2 Weight", 20f, "Weight of Tier 2 items. Weights are relative to each other.");
-            Tier3Weight = Config.Bind("Basic Chest", "Tier 3 Weight", 5f, "Weight of Tier 3 items. Weights are relative to each other.");
+            Tier1Weight = Config.Bind("Basic Chest", "Tier 1 Weight", 79.2f, "Weight of Tier 1 items. Weights are relative to each other.");
+            Tier2Weight = Config.Bind("Basic Chest", "Tier 2 Weight", 19.8f, "Weight of Tier 2 items. Weights are relative to each other.");
+            Tier3Weight = Config.Bind("Basic Chest", "Tier 3 Weight", 1f, "Weight of Tier 3 items. Weights are relative to each other.");
             EverythingElseWeight = Config.Bind("Basic Chest", "Everything Else Weight", 1f, "Weight of item of everyother tier. Weights are relative to each other.");
 
             ContentManager.collectContentPackProviders += ContentManager_collectContentPackProviders;
