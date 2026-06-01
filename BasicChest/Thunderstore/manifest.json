@@ -1,0 +1,11 @@
+{
+    "name": "BasicChest",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/viliger2/RoR2_EnemiesReturns",
+    "description": "Adds a Basic Chests that contains Basic items.",
+    "dependencies": [
+	"bbepis-BepInExPack-5.4.2121",
+	"RiskofThunder-HookGenPatcher-1.2.4",
+	"RiskofThunder-R2API_Prefab-1.1.1"
+    ]
+}
