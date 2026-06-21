@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CelestialPortalAfterBosses"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaddiesWithItems", "BaddiesWithItems\BaddiesWithItems.csproj", "{5AC95A4B-2969-488C-841B-ACAF6580433A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicChest", "BasicChest\BasicChest.csproj", "{8A49B2F8-AD34-4360-B995-FEB01255386C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicChest", "BasicChest\BasicChest.csproj", "{8A49B2F8-AD34-4360-B995-FEB01255386C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForlornWreckageStage5", "ForlornWreckageStage5\ForlornWreckageStage5.csproj", "{072DBA10-F0CE-47DA-ADFB-1725F494B364}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{8A49B2F8-AD34-4360-B995-FEB01255386C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A49B2F8-AD34-4360-B995-FEB01255386C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A49B2F8-AD34-4360-B995-FEB01255386C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{072DBA10-F0CE-47DA-ADFB-1725F494B364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{072DBA10-F0CE-47DA-ADFB-1725F494B364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{072DBA10-F0CE-47DA-ADFB-1725F494B364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{072DBA10-F0CE-47DA-ADFB-1725F494B364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

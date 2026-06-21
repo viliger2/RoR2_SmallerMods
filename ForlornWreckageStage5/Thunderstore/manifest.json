@@ -1,0 +1,13 @@
+﻿{
+	"name": "ForlornWreckageStage5",
+	"version_number": "1.0.0",
+	"website_url": "",
+	"description": "Moves Forlorn Wreckage to stage 5.",
+	"dependencies": [
+		"bbepis-BepInExPack-5.4.2121",
+		"Winslow-Forlorn_Wreckage-1.2.1",
+		"JaceDaDorito-LocationsOfPrecipitation-1.2.2",
+		"RiskofThunder-R2API_ContentManagement-1.0.1",
+		"RiskofThunder-R2API_Director-2.3.9"
+	]
+}
