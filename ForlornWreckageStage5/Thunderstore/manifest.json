@@ -1,6 +1,6 @@
 ﻿{
 	"name": "ForlornWreckageStage5",
-	"version_number": "1.0.0",
+	"version_number": "1.0.2",
 	"website_url": "",
 	"description": "Moves Forlorn Wreckage to stage 5.",
 	"dependencies": [

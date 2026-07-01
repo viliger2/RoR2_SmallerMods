@@ -12,6 +12,12 @@ namespace RepurposedCraterBoss.ModdedEntityStates.BossEncounter
         {
             public Vector3 position;
             public Vector3 rotation;
+
+            public PositionAndRotation(Vector3 position, Vector3 rotation)
+            {
+                this.position = position;
+                this.rotation = rotation;
+            }
         }
 
         public static float delayBeforeBeginningEncounter = 2f;

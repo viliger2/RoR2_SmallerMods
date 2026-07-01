@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using LOP;
 using R2API;
 using R2API.ContentManagement;
@@ -21,8 +22,11 @@ namespace ForlornWreckageStage5
     {
         public const string Author = "viliger";
         public const string ModName = "ForlornWreckageStage5";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.2";
         public const string GUID = "com." + Author + "." + ModName;
+
+        public static ConfigEntry<bool> DisableAccessNode;
+
 
         private const string FORLORN_WRECKAGE_SCENE_NAME = "forgottenwreckage_ws";
 
@@ -30,8 +34,11 @@ namespace ForlornWreckageStage5
 
         private void Awake()
         {
+            DisableAccessNode = Config.Bind("Forlown Wreckage", "Disable Access Node", true, "Disables spawn on Access Node on stage.");
+
             RoR2Application.onLoadFinished += ModifyForlornWreckage;
             On.RoR2.SceneDirector.Start += SceneDirector_Start;
+            On.RoR2.AccessCodesMissionController.OnStartServer += AccessCodesMissionController_OnStartServer;
 
             CreateArtifactThing();
 
@@ -52,6 +59,15 @@ namespace ForlornWreckageStage5
             };
             DirectorAPI.Helpers.AddNewInteractableToStage(directorCardHolder, DirectorAPI.Stage.Custom, FORLORN_WRECKAGE_SCENE_NAME);
             DirectorAPI.Helpers.RemoveExistingInteractableFromStage(DirectorAPI.Helpers.InteractableNames.TripleShop, DirectorAPI.Stage.Custom, FORLORN_WRECKAGE_SCENE_NAME);
+        }
+
+        private void AccessCodesMissionController_OnStartServer(On.RoR2.AccessCodesMissionController.orig_OnStartServer orig, AccessCodesMissionController self)
+        {
+            if (SceneInfo.instance && SceneInfo.instance.sceneDef && SceneInfo.instance.sceneDef.baseSceneName == FORLORN_WRECKAGE_SCENE_NAME && DisableAccessNode.Value)
+            {
+                return;
+            }
+            orig(self);
         }
 
         private void CreateJumpPad(Vector3 position, Vector3 rotation, Vector3 targetPosition, Vector3 jumpVelocity, float time)
@@ -169,6 +185,8 @@ namespace ForlornWreckageStage5
             {
                 return;
             }
+
+            fwSceneDef.stageOrder = 5;
 
             var loopSgStage3 = Addressables.LoadAssetAsync<SceneCollection>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_Base_SceneGroups.loopSgStage3_asset).WaitForCompletion();
             var sgStage3 = Addressables.LoadAssetAsync<SceneCollection>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_Base_SceneGroups.sgStage3_asset).WaitForCompletion();
