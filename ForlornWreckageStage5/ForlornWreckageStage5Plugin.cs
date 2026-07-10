@@ -22,7 +22,7 @@ namespace ForlornWreckageStage5
     {
         public const string Author = "viliger";
         public const string ModName = "ForlornWreckageStage5";
-        public const string Version = "1.0.2";
+        public const string Version = "1.0.3";
         public const string GUID = "com." + Author + "." + ModName;
 
         public static ConfigEntry<bool> DisableAccessNode;
@@ -145,6 +145,7 @@ namespace ForlornWreckageStage5
                 if (csi)
                 {
                     csi.sceneDirectorInteractibleCredits = 520;
+                    csi.sceneDirectorMonsterCredits = 230;
                 }
 
                 CreateJumpPad(new Vector3(153.320007f, 270.01001f, -405.059998f), new Vector3(270, 0, 0), new Vector3(-11.5799999f, 40.4300003f, 53.5299988f), new Vector3(-5.03478336f, 57.7739105f, -17.5782585f), 2.3f);
@@ -223,6 +224,5 @@ namespace ForlornWreckageStage5
                 }
             }
         }
-
     }
 }

@@ -10,6 +10,7 @@ Moves Forlorn Wreckage to Stage 5 with some changes to make it suitable as stage
   * Added Parent, Grandparent and Elder Lemurian to spawn pool
 * Interactables
   * Increased interactable credit pool to 520
+  * Increased starting monster credit pool to 230
   * Added Tier 2 Tri-shop
   * Removed Tier 1 Tri-shop
   * Swapped teleporter with lunar teleporter

@@ -1,7 +1,7 @@
 ﻿{
 	"name": "ForlornWreckageStage5",
-	"version_number": "1.0.2",
-	"website_url": "",
+	"version_number": "1.0.3",
+	"website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/ForlornWreckageStage5",
 	"description": "Moves Forlorn Wreckage to stage 5.",
 	"dependencies": [
 		"bbepis-BepInExPack-5.4.2121",
