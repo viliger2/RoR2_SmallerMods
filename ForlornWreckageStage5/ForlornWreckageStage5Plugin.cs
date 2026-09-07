@@ -22,11 +22,10 @@ namespace ForlornWreckageStage5
     {
         public const string Author = "viliger";
         public const string ModName = "ForlornWreckageStage5";
-        public const string Version = "1.0.3";
+        public const string Version = "1.0.4";
         public const string GUID = "com." + Author + "." + ModName;
 
         public static ConfigEntry<bool> DisableAccessNode;
-
 
         private const string FORLORN_WRECKAGE_SCENE_NAME = "forgottenwreckage_ws";
 
@@ -206,6 +205,7 @@ namespace ForlornWreckageStage5
 
             fwSceneDef.destinationsGroup = sgStage1;
             fwSceneDef.loopedDestinationsGroup = loopSgStage1;
+            fwSceneDef.shouldUpdateSceneCollectionAfterLooping = true;
 
             void AppendStageToSceneCollection(ref SceneCollection sceneCollection, SceneDef sceneDef)
             {
