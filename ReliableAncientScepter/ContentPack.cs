@@ -26,6 +26,13 @@ namespace ReliableAncientScepter
 
         public static GameObject voidCampGemInteractable;
 
+        public static readonly Dictionary<string, string> ShaderLookup = new Dictionary<string, string>()
+        {
+            {"stubbedror2/base/shaders/hgstandard", "RoR2/Base/Shaders/HGStandard.shader"}
+        };
+
+        private Material[] materialCache;
+
         public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
         {
             args.ReportProgress(1f);
@@ -58,6 +65,9 @@ namespace ReliableAncientScepter
             voidCampGemInteractable = CreateVoidCampGemInteractable(assetbundle.LoadAsset<GameObject>("Assets/Scepter/ScepterGemInteractable.prefab"), BrokenScepterGem);
             _contentPack.networkedObjectPrefabs.Add(new GameObject[] { voidCampGemInteractable });
             iscScepterGem = CreateInteractableSpawnCard(voidCampGemInteractable);
+
+            materialCache = assetbundle.LoadAllAssets<Material>();
+            SwapMaterials(materialCache);
 
             var voidCamp = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPaths.Version_1_39_0.RoR2_DLC1_VoidCamp.VoidCamp_prefab).WaitForCompletion();
             var interactables = voidCamp.transform.Find("Camp 1 - Void Monsters & Interactables");
@@ -182,6 +192,34 @@ namespace ReliableAncientScepter
             itemDef.tags = new ItemTag[] { ItemTag.AllowedForUseAsCraftingIngredient };
 
             return itemDef;
+        }
+
+        private void SwapMaterials(Material[] assets)
+        {
+            var materials = assets;
+
+            if (materials != null)
+            {
+                foreach (Material material in materials)
+                {
+                    if (!ShaderLookup.TryGetValue(material.shader.name.ToLower(), out var matName))
+                    {
+                        Log.Info($"Couldn't find replacement shader for {material.shader.name.ToLower()} in dictionary for material {material.name}.");
+                        continue;
+                    }
+                    var replacementShader = Addressables.LoadAssetAsync<Shader>(matName).WaitForCompletion();
+                    if (replacementShader)
+                    {
+                        var renderQueue = material.renderQueue;
+                        material.shader = replacementShader;
+                        material.renderQueue = renderQueue;
+                    }
+                    else
+                    {
+                        Log.Info("Couldn't find replacement shader for " + material.shader.name.ToLower());
+                    }
+                }
+            }
         }
 
         private IEnumerator LoadAssetBundle(string assetBundleFullPath, IProgress<float> progress, Action<AssetBundle> onAssetBundleLoaded)

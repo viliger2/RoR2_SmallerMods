@@ -22,6 +22,8 @@ namespace ReliableAncientScepter
 
         public void Awake()
         {
+            Log.Init(Logger);
+
             HalcyoniteRewardChance = Config.Bind("Reliable Ancient Scepter", "Halcyonite Reward Spawn Chance", 50f, "Percent chance that Scepter Shaft will replace one of the items from Halcyonite Shrine rewards (and the one you get at meridian but shhhh)");
             ScepterGemVoidCampCost = Config.Bind("Reliable Ancient Scepter", "Void Camp Spawn Cost", 30, "How much, in credits, it costs Void Camp to spawn Scepter Gem interactable.");
             VoidCampGemSpawnChance = Config.Bind("Reliable Ancient Scepter", "Void Camp Spawn Chance", 50f, "Percent chance that Scepter Gem will spawn in Void Camp.");
