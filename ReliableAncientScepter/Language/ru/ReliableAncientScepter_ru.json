@@ -1,0 +1,12 @@
+{
+	"strings": {
+		"VILIGER_RELIABLE_SCEPTER_INTERACABLE_GEM_NAME": "Фиолетовый самоцвет",
+		"VILIGER_RELIABLE_SCEPTER_INTERACABLE_GEM_CONTEXT": "Подобрать",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERSHAFT_NAME": "Рукоятка скипетра",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERSHAFT_PICKUP": "Выглядит как проводник для чего-то.",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERSHAFT_DESC": "Выглядит как проводник для чего-то. Даже если вы найдете это \"что-то\", вы скорее всего не сможете вставить это \"что-то\" на место.",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERGEM_NAME": "Фиолетовый самоцвет",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERGEM_PICKUP": "Он мерцает мощью.",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERGEM_DESC": "Он мерцает мощью. Но его мощь не может быть использована без проводника."
+	}
+}

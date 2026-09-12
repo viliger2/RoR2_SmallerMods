@@ -1,0 +1,12 @@
+{
+	"strings": {
+		"VILIGER_RELIABLE_SCEPTER_INTERACABLE_GEM_NAME": "Purple Gem",
+		"VILIGER_RELIABLE_SCEPTER_INTERACABLE_GEM_CONTEXT": "Pick up",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERSHAFT_NAME": "Scepter Shaft",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERSHAFT_PICKUP": "It seems to be a conduit for something.",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERSHAFT_DESC": "It seems to be a conduit for something. Even if you found that \"something\", you probably won't be able to slot it back in.",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERGEM_NAME": "Purple Gem",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERGEM_PICKUP": "It pulses with power.",
+		"VILIGER_RELIABLE_SCEPTER_ITEM_VILIGERBROKENSCEPTERGEM_DESC": "It pulses with power. But its power can't be used without something to channel it."
+	}
+}
