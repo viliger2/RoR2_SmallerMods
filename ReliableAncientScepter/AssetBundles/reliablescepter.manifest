@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 1334809543
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ee3a4bbaf9eefa8973762dc46a8d9485
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1972fa43f7468442bfb13f7d651538f7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Scepter/texScepterShaftIcon.png
+- Assets/Scepter/texScepterGemIcon.png
+- Assets/Scepter/ScepterGemInteractable.prefab
+- Assets/Scepter/matReliableScepter.mat
+- Assets/Scepter/PickupScepterGem.prefab
+- Assets/Scepter/PickupScepterShaft.prefab
+Dependencies: []

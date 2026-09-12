@@ -20,6 +20,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="AssetBundles\reliablescepter">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="AssetBundles\reliablescepter.manifest">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	  <None Update="Language\en\ReliableAncientScepter_en.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>

@@ -1,0 +1,11 @@
+{
+    "name": "ReliableAncientScepter",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/ReliableAncientScepter",
+    "description": "Adds a reliable way to obtain Ancient Scepter. Requires all 3 DLCs.",
+    "dependencies": [
+	    "bbepis-BepInExPack-5.4.2122",
+		"RiskofThunder-R2API_Prefab-1.1.1",
+		"amogus_lovers-StandaloneAncientScepter-1.1.37"
+    ]
+}
