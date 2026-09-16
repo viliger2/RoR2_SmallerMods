@@ -189,7 +189,7 @@ namespace ReliableAncientScepter
             itemDef.pickupIconSprite = icon;
             itemDef.canRemove = false;
             itemDef.isConsumed = true;
-            itemDef.tags = new ItemTag[] { ItemTag.AllowedForUseAsCraftingIngredient };
+            itemDef.tags = new ItemTag[] { ItemTag.AllowedForUseAsCraftingIngredient, ItemTag.WorldUnique };
 
             return itemDef;
         }

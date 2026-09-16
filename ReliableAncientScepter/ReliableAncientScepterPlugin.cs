@@ -13,7 +13,7 @@ namespace ReliableAncientScepter
     {
         public const string Author = "viliger";
         public const string Name = nameof(ReliableAncientScepterPlugin);
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.2";
         public const string GUID = Author + "." + Name;
 
         public static ConfigEntry<float> HalcyoniteRewardChance;
