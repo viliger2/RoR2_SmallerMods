@@ -13,7 +13,7 @@ namespace ReliableAncientScepter
     {
         public const string Author = "viliger";
         public const string Name = nameof(ReliableAncientScepterPlugin);
-        public const string Version = "1.0.2";
+        public const string Version = "1.0.3";
         public const string GUID = Author + "." + Name;
 
         public static ConfigEntry<float> HalcyoniteRewardChance;
@@ -40,7 +40,7 @@ namespace ReliableAncientScepter
             var result = orig(numOptions, dropTable, stormDropTable, rng);
 
             var roll = rng.RangeFloat(0, 100);
-            if(roll > HalcyoniteRewardChance.Value && ContentProvider.BrokenScepterShaft && result.Length > 0)
+            if(roll < HalcyoniteRewardChance.Value && ContentProvider.BrokenScepterShaft && result.Length > 0)
             {
                 var replacementIndex = rng.RangeInt(0, result.Length);
                 result[replacementIndex] = new RoR2.PickupPickerController.Option

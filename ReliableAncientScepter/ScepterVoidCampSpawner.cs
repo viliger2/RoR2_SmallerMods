@@ -33,7 +33,7 @@ namespace ReliableAncientScepter
                 rng = new Xoroshiro128Plus(Run.instance.stageRng.nextUint);
 
                 var range = rng.RangeFloat(0, 100f);
-                if (range > scepterGemSpawnChance)
+                if (range < scepterGemSpawnChance)
                 {
                     spawn = true;
                     campDirector.baseInteractableCredit -= iscScepterGem.directorCreditCost;
