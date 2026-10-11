@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 [assembly: HG.Reflection.SearchableAttribute.OptInAttribute]
 namespace RoR2_PrintersIcon
 {
-    [BepInPlugin("com.Viliger.ActualPrinterIcon", "ActualPrinterIcon", "1.0.2")]
+    [BepInPlugin("com.Viliger.ActualPrinterIcon", "ActualPrinterIcon", "1.0.3")]
     public class ActualPrinterIcon : BaseUnityPlugin
     {
 

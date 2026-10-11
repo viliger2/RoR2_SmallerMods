@@ -1,7 +1,7 @@
 <details>
 <summary>1.0.3 </summary>
 
-* Fixed chance configs being reversed (0 would result in always spawning and 100 in never)..
+* Fixed chance configs being reversed (0 would result in always spawning and 100 in never spawning).
 </details>
 <details>
 <summary>1.0.2 </summary>
