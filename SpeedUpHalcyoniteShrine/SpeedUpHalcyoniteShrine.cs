@@ -11,18 +11,18 @@ namespace SpeedUpHalcyoniteShrine
     {
         public const string Author = "Viliger";
         public const string ModName = "SpeedUpHalcyoniteShrine";
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.2";
         public const string GUID = "com." + Author + "." + ModName;
 
-        public static ConfigEntry<float> UseSkillDefNames;
+        public static ConfigEntry<float> GoldTickRate;
 
         private void Awake()
         {
-            UseSkillDefNames = Config.Bind("Gold Tick Rate", "Gold Tick Rate", 10f, "Tick rate (times gold gets drained per second) of the shrine. Vanilla values is 5, so 10 would make shrine charge twice as fast.");
+            GoldTickRate = Config.Bind("Gold Tick Rate", "Gold Tick Rate", 10f, "Tick rate (times gold gets drained per second) of the shrine. Vanilla values is 7, so 10 would make shrine charge twice as fast.");
 
             var shrineHalcyonite = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_DLC2.ShrineHalcyonite_prefab).WaitForCompletion();
             var interactable = shrineHalcyonite.GetComponent<HalcyoniteShrineInteractable>();
-            interactable.tickRate = UseSkillDefNames.Value;
+            interactable.tickRate = GoldTickRate.Value;
         }
     }
 }
