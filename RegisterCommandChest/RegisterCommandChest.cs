@@ -11,7 +11,7 @@ namespace RegisterCommandChest
     {
         public const string Author = "Viliger";
         public const string Name = nameof(RegisterCommandChest);
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.2";
         public const string GUID = Author + "." + Name;
 
         public const string LanguageFolder = "Language";
@@ -60,13 +60,13 @@ namespace RegisterCommandChest
             (inspectDef as ScriptableObject).name = "CommandChestInspectDef";
             inspectDef.Info = new RoR2.UI.InspectInfo()
             {
-                Visual = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/ChestIcon_1.png").WaitForCompletion(),
+                Visual = Addressables.LoadAssetAsync<Sprite>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_Base.ChestIcon_1_png).WaitForCompletion(),
                 TitleToken = "COMMANDCHEST_NAME",
                 DescriptionToken = "COMMANDCHEST_DESCRIPTION",
                 FlavorToken = "COMMANDCHEST_LORE"
             };
 
-            var commandChestPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/CommandChest/CommandChest.prefab").WaitForCompletion();
+            var commandChestPrefab = Addressables.LoadAssetAsync<GameObject>(RoR2BepInExPack.GameAssetPathsBetter.RoR2_CommandChest.CommandChest_prefab).WaitForCompletion();
             commandChestPrefab.AddComponent<GenericInspectInfoProvider>().InspectInfo = inspectDef;
 
             _contentPack.networkedObjectPrefabs.Add(new GameObject[] { commandChestPrefab });
