@@ -1,4 +1,10 @@
 <details>
+<summary>1.0.5 </summary>
+
+* Recompiled for HC.
+  * _Damage source is still not in for enemies. Not even HC ones. Randy, what the fuck am I paying you for?._
+</details>
+<details>
 <summary>1.0.4 </summary>
 
 * Recompiled for AC.

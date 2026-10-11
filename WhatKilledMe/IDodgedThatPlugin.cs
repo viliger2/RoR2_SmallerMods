@@ -10,7 +10,7 @@ namespace WhatKilledMe
     {
         public const string Author = "Viliger";
         public const string ModName = "IDodgedThat";
-        public const string Version = "1.0.4";
+        public const string Version = "1.0.5";
         public const string GUID = "com." + Author + "." + ModName;
 
         public const string LanguageFolder = "Language";
@@ -21,7 +21,7 @@ namespace WhatKilledMe
         {
             UseSkillDefNames = Config.Bind("Death Log", "Output SkillDef Names", true, "Outputs SkillDef name if nameToken is null or empty for that skillDef.");
 
-            RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
+            RoR2.GlobalEventManager.onCharacterDeathServer += GlobalEventManager_onCharacterDeathGlobal;
             RoR2.Language.collectLanguageRootFolders += Language_collectLanguageRootFolders;
         }
 
