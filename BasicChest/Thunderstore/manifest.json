@@ -1,6 +1,6 @@
 {
     "name": "BasicChest",
-    "version_number": "1.0.1",
+    "version_number": "1.0.2",
     "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/BasicChest",
     "description": "Adds a Basic Chests that contains basic items.",
     "dependencies": [
