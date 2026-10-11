@@ -15,7 +15,7 @@ namespace ArtifactOfLimit
     {
         public const string Author = "viliger";
         public const string ModName = "ArtifactOfLimit";
-        public const string Version = "1.1.5";
+        public const string Version = "1.1.6";
         public const string GUID = "com." + Author + "." + ModName;
 
         public static bool isLoaded = false;
@@ -96,6 +96,8 @@ namespace ArtifactOfLimit
             artifactDef.descriptionToken = "VILIGER_ARTIFACT_OF_LIMIT_NAME_DESC";
             artifactDef.smallIconSelectedSprite = assetbundle.LoadAsset<Sprite>("Assets/ArtifactOfLimit/limiton.png");
             artifactDef.smallIconDeselectedSprite = assetbundle.LoadAsset<Sprite>("Assets/ArtifactOfLimit/limitoff.png");
+            artifactDef.smallIconDeselectedReference = new UnityEngine.AddressableAssets.AssetReferenceT<Sprite>("");
+            artifactDef.smallIconSelectedReference = new UnityEngine.AddressableAssets.AssetReferenceT<Sprite>("");
 
             ArtifactOfLimitManager.myArtifact = artifactDef;
 

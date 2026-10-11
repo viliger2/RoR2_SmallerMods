@@ -199,6 +199,10 @@ namespace ArtifactOfLimit
             AddAllItemsToItemMask(ref newAvailableItems, run.availableVoidBossDropList);
             AddAllItemsToItemMask(ref newAvailableItems, run.availableFoodTierDropList);
             AddAllItemsToItemMask(ref newAvailableItems, run.availablePowerShapeItemsDropList);
+            AddAllItemsToItemMask(ref newAvailableItems, run.availableKeyItemsDropList);
+            AddAllItemsToItemMask(ref newAvailableItems, run.availableCursedTierDropList);
+            AddAllItemsToItemMask(ref newAvailableItems, run.availableHexTierDropList);
+            AddAllItemsToItemMask(ref newAvailableItems, run.availablePageTierDropList);
 
             void AddAllItemsToItemMask(ref ItemMask itemMask, List<PickupIndex> itemList)
             {

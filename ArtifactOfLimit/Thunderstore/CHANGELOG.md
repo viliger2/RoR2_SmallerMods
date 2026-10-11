@@ -1,4 +1,9 @@
 <details>
+<summary>1.1.6 </summary>
+
+* Recompiled for HC.
+</details>
+<details>
 <summary>1.1.5 </summary>
 
 * zh-CN language support by https://github.com/JunJun5406
