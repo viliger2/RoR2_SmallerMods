@@ -86,6 +86,7 @@ namespace FathomlessVoidling
                 Addressables.LoadAssetAsync<Material>("RoR2/DLC1/EliteVoid/matEliteVoidOverlay.mat").WaitForCompletion()
             };
             component.ghostPrefab = meteorGhost;
+            component.ghostPrefabAddress = new AssetReferenceT<GameObject>("");
 
             VoidlingEntityStates.Phase3.Crush.meteorPrefab = meteor;
             ContentAddition.AddProjectile(VoidlingEntityStates.Phase3.Crush.meteorPrefab);

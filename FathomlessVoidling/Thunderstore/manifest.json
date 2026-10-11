@@ -1,6 +1,6 @@
 ﻿{
 	"name": "OldFathomlessVoidling",
-	"version_number": "0.10.2",
+	"version_number": "0.10.3",
 	"website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/FathomlessVoidling",
 	"description": "[PRE 1.0.0 Reuploaded with permission] Improved Voidling fight with some extras. Configurable. Fixed for AC.",
 	"dependencies": [
