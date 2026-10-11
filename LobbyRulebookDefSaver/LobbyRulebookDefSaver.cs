@@ -14,7 +14,7 @@ namespace LobbyRulebookDefSaver
     {
         public const string Author = "viliger";
         public const string ModName = "LobbyRulebookDefSaver";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         public const string GUID = "com." + Author + "." + ModName;
 
         private static ConfigEntry<string> SavedRulebookRules;
