@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicChest", "BasicChest\Ba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForlornWreckageStage5", "ForlornWreckageStage5\ForlornWreckageStage5.csproj", "{072DBA10-F0CE-47DA-ADFB-1725F494B364}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReliableAncientScepter", "ReliableAncientScepter\ReliableAncientScepter.csproj", "{8833EB19-174D-4BF7-9ACD-8E61ADD074ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReliableAncientScepter", "ReliableAncientScepter\ReliableAncientScepter.csproj", "{8833EB19-174D-4BF7-9ACD-8E61ADD074ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertainHallowedConcepts", "CertainHallowedConcepts\CertainHallowedConcepts.csproj", "{1269BBAC-B1E0-41C0-B475-09998AA0A93B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{8833EB19-174D-4BF7-9ACD-8E61ADD074ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8833EB19-174D-4BF7-9ACD-8E61ADD074ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8833EB19-174D-4BF7-9ACD-8E61ADD074ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1269BBAC-B1E0-41C0-B475-09998AA0A93B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1269BBAC-B1E0-41C0-B475-09998AA0A93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1269BBAC-B1E0-41C0-B475-09998AA0A93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1269BBAC-B1E0-41C0-B475-09998AA0A93B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

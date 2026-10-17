@@ -1,0 +1,9 @@
+{
+    "name": "CertainHallowedConcepts",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/viliger2/RoR2_SmallerMods/tree/main/CelestialPortalAfterBosses",
+    "description": "Hallowed Concept adjustments. More Ritual timer. Guaranteed Ancient Sepulcher and Reincarnation page.",
+  "dependencies": [
+    "bbepis-BepInExPack-5.4.2121"
+  ]
+}
