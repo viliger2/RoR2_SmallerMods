@@ -12,16 +12,18 @@ namespace CelestialPortalAfterBosses
     {
         public const string Author = "viliger";
         public const string ModName = "CelestialPortalAfterBosses";
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.2";
         public const string GUID = "com." + Author + "." + ModName;
 
         public static ConfigEntry<bool> SpawnAfterFalseSon;
         public static ConfigEntry<bool> SpawnAfterSHeart;
+        public static ConfigEntry<bool> SpawnAfterReaper;
 
         private void Awake()
         {
             SpawnAfterFalseSon = Config.Bind("Celestial Portal", "Spawn After False Son", true, "Spawns Celestial Portal after defeating False Son post loop.");
             SpawnAfterSHeart = Config.Bind("Celestial Portal", "Spawn After Solus Heart", true, "Spawns Celestial Portal after defeating Solus Heart post loop.");
+            SpawnAfterReaper = Config.Bind("Celestial Portal", "Spawn After Anima Harvester", true, "Spawn Celestial Portal after defeating Anima Harvester post loop.");
 
             if (SpawnAfterFalseSon.Value)
             {
@@ -31,6 +33,15 @@ namespace CelestialPortalAfterBosses
             {
                 On.RoR2.SolusWebMissionController.SpawnExitPortal += SolusWebMissionController_SpawnExitPortal;
             }
+            if (SpawnAfterReaper.Value)
+            {
+                RoR2.ChampRushMissionController.onRitualCompletedServer += ChampRushMissionController_onRitualCompletedServer;
+            }
+        }
+
+        private void ChampRushMissionController_onRitualCompletedServer()
+        {
+            OpenMSPortal(new Vector3(-47.2083f, -39.1971f, -83.2852f), new Vector3(0f, 247.8983f, 0f));
         }
 
         private void SolusWebMissionController_SpawnExitPortal(On.RoR2.SolusWebMissionController.orig_SpawnExitPortal orig, RoR2.SolusWebMissionController self)
